@@ -1,0 +1,89 @@
+{% load static %}
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>パーソナルカラー診断</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#!">パーソナルカラー診断</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">ホーム</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">アプリ紹介</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">フォーム</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">ログイン</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">ログアウト</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header - set the background image for the header in the line below-->
+        <header class="py-5 bg-image-full" style="background-image: url('{% static 'img/roses-g44a7cef51_1920.jpg' %}')">
+            <div class="text-center my-5">
+                <img class="img-fluid rounded-circle mb-4" src="{% static 'img/clover.jpg' %}" alt="..." />
+                <h1 class="text-white fs-3 fw-bolder">Personal Color</h1>
+                <p class="text-white-50 mb-0">あなたの顔写真からパーソナルカラーを診断！</p>
+            </div>
+        </header>
+        <!-- Content section-->
+        <section class="py-5">
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <h2>パーソナルカラーを診断！</h2>
+                        <p class="lead">ご自身に似合う色をご存じでしょうか。好きな色はあるけど派手すぎる！色を選ぶときにいつも同じ色味や、無難な白や黒を選んでしまうことはありませんか。</p>
+                        <p class="mb-0">顔写真からパーソナルカラーを診断し、あなたに似合う色を診断できます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Image element - set the background image for the header in the line below-->
+        <div class="py-5 bg-image-full" style="{% static 'img/season.jpg' %}">
+            <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+            <div style="height: 20rem"></div>
+        </div>
+        <!-- Content section-->
+        <section class="py-5">
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <h2>さっそく診断してみましょう</h2>
+                        <p class="lead">パーソナルカラーは春・夏・秋・冬の4つの季節タイプに分かれています。</p>
+                        <p class="mb-0">初めての方はもちろん、今までパーソナルカラー診断を受けたり、ネットや雑誌で自己診断しても、何だか結果がしっくりこないと感じている方は、ぜひチェックしてみてください。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="diagnose">
+                <label>性別</label>
+                <label for="r_female">女性 <input id="r_female" type="radio" name="gender" value="女性"></label>
+                <label for="r_male">男性 <input id="r_male" type="radio" name="gender" value="男性"></label>
+                <label for="r_others">その他 <input id="r_others" type="radio" name="gender" value="その他"></label>
+            </div>
+            <div class="diagnose">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="file" name="avatar"><br><br>
+                    <button type="submit">送信</button>
+                </form>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">&copy; Personal Color GroupC 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
