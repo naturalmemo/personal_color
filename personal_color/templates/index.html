@@ -64,18 +64,19 @@
                     </div>
                 </div>
             </div>
-            <div class="diagnose">
-                <label>性別</label>
-                <label for="r_female">女性 <input id="r_female" type="radio" name="gender" value="女性"></label>
-                <label for="r_male">男性 <input id="r_male" type="radio" name="gender" value="男性"></label>
-                <label for="r_others">その他 <input id="r_others" type="radio" name="gender" value="その他"></label>
-            </div>
-            <div class="diagnose">
-                <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data">
+                <div class="diagnose">
+                    <label>性別</label>
+                    <label for="r_female">女性 <input id="r_female" type="radio" name="gender" value="女性"></label>
+                    <label for="r_male">男性 <input id="r_male" type="radio" name="gender" value="男性"></label>
+                    <label for="r_others">その他 <input id="r_others" type="radio" name="gender" value="その他"></label>
+                </div>
+                <div class="diagnose">
+                    
                     <input type="file" name="avatar"><br><br>
                     <button type="submit">送信</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
