@@ -49,3 +49,6 @@ class IntroductionView(generic.TemplateView):
 
 class ResultView(generic.TemplateView):
     template_name = "result.html"
+
+class LoginView(generic.TemplateView):
+    template_name = "login.html"
