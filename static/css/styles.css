@@ -11290,24 +11290,7 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
-  background-size: cover;
-}
-.season-vw{
-	display: flex;
-	flex-wrap:wrap;
-  float: left;
-  margin-bottom: 50px;
-	
-}
-.season-vw li {
-	width: calc(100%/4);/*←画像を横に4つ並べる場合*/
-	padding:0;
-	box-sizing:border-box;
-}
-.season-vw li img {
-	max-width:100%; /*画像のはみだしを防ぐ*/
-	height: auto; /*画像の縦横比を維持 */
-}
-.diagnose {
-  text-align: center;
+  background-size:contain;                               /* 画像のサイズを指定    */
+  width:100%;                                            /* 横幅のサイズを指定    */
+  height:100%;
 }
