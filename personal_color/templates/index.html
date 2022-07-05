@@ -15,14 +15,14 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#!">パーソナルカラー診断</a>
+                <a class="navbar-brand" href="/">パーソナルカラー診断</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">ホーム</a></li>
                         <li class="nav-item"><a class="nav-link" href="/introduction">アプリ紹介</a></li>
                         <li class="nav-item"><a class="nav-link" href="/form">フォーム</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">ログイン</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">ログイン</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">ログアウト</a></li>
                     </ul>
                 </div>
@@ -49,10 +49,22 @@
             </div>
         </section>
         <!-- Image element - set the background image for the header in the line below-->
-        <div class="py-5 bg-image-full" style="{% static 'img/season.jpg' %}">
-            <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
-            <div style="height: 20rem"></div>
-        </div>
+        <div class="container">
+            <div class="row">
+              <div class="col">
+                <img src="{% static 'img/haru.jpg'%}" alt="" class="img-fluid">
+              </div>
+              <div class="col">
+                <img src="{% static 'img/natsu.jpg' %}" alt="" class="img-fluid">
+              </div>
+              <div class="col">
+                <img src="{% static 'img/aki.jpg' %}" alt="" class="img-fluid">
+              </div>
+              <div class="col">
+                <img src="{% static 'img/huyu.jpg' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
         <!-- Content section-->
         <section class="py-5">
             <div class="container my-5">
@@ -64,19 +76,18 @@
                     </div>
                 </div>
             </div>
-            <form method="post" enctype="multipart/form-data">
-                <div class="diagnose">
-                    <label>性別</label>
-                    <label for="r_female">女性 <input id="r_female" type="radio" name="gender" value="女性"></label>
-                    <label for="r_male">男性 <input id="r_male" type="radio" name="gender" value="男性"></label>
-                    <label for="r_others">その他 <input id="r_others" type="radio" name="gender" value="その他"></label>
-                </div>
-                <div class="diagnose">
-                    
+            <div class="diagnose">
+                <label>性別</label>
+                <label for="r_female">女性 <input id="r_female" type="radio" name="gender" value="女性"></label>
+                <label for="r_male">男性 <input id="r_male" type="radio" name="gender" value="男性"></label>
+                <label for="r_others">その他 <input id="r_others" type="radio" name="gender" value="その他"></label>
+            </div>
+            <div class="diagnose">
+                <form method="post" enctype="multipart/form-data">
                     <input type="file" name="avatar"><br><br>
                     <button type="submit">送信</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">

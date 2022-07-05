@@ -4,10 +4,10 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
-        <meta name="author" content="" />"{% static 'assets/favicon.ico' %}"
+        <meta name="author" content="" />
         <title>パーソナルカラー診断</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'css/introduction.css' %}" rel="stylesheet" />
     </head>
@@ -15,14 +15,14 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#!">パーソナルカラー診断</a>
+                <a class="navbar-brand" href="/">パーソナルカラー診断</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="/">ホーム</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="/introduction">アプリ紹介</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">ホーム</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/introduction">アプリ紹介</a></li>
                         <li class="nav-item"><a class="nav-link" href="/form">フォーム</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">ログイン</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">ログイン</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">ログアウト</a></li>
                     </ul>
                 </div>
@@ -31,8 +31,9 @@
         <!-- Header - set the background image for the header in the line below-->
         <header>
             <div class="flex">
-                <p class="side-img"><img class="img-fluid rounded-circle mb-4" src="{% static 'img/clover.jpg' %}" alt="..." /></p>
-                <p class="">アプリ紹介</p>
+                <p class="side-img"><img class="img-fluid rounded-circle mb-4" src="{% static 'img/clover.jpg' %}" alt="..." />
+                    <h1>アプリ紹介</h1>
+                </p>
             </div>
         </header>
         <!-- Content section-->
@@ -58,6 +59,52 @@
                         <h2>STAFFのご紹介</h2>
                         <p class="lead">パーソナルカラーは春・夏・秋・冬の4つの季節タイプに分かれています。</p>
                         <p class="mb-0">初めての方はもちろん、今までパーソナルカラー診断を受けたり、ネットや雑誌で自己診断しても、何だか結果がしっくりこないと感じている方は、ぜひチェックしてみてください。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="wrapper">
+            <div class="container">
+                <div class="content">
+                    <div class="list">
+                        <div class="list-item">
+                            <img src="{% static 'img/huyu.jpg' %}" class="image">
+                            <div class="text">ARAI<br>
+                            
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <img src="{% static 'img/happy-woman-in-floral-dress-g58183d8fe_640.jpg' %}" class="image">
+                            <div class="text">ONOGI<br>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="wrapper">
+            <div class="container">
+                <div class="content">
+                    <div class="list">
+                        <div class="list-item">
+                            <img src="{% static 'img/haru.jpg' %}" class="image">
+                            <div class="text">IWAMOTO<br>
+                            
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <img src="{% static 'img/natsu.jpg' %}" class="image">
+                            <div class="text">TAMURA<br>
+                            
+                            </div>
+                        </div>    
+                        <div class="list-item">
+                            <img src="{% static 'img/aki.jpg' %}" class="image">
+                            <div class="text">Lee<br>
+                            ウラでこのチームを牛耳っていました！
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
