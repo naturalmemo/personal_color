@@ -172,6 +172,7 @@ LOGGING = {
                 '%(asctime)s',
                 '[%(levelname)s]',
                 '%(pathname)s(Line:%(lineno)d)',
+                '%(message)s'
             ])
         },
     }
