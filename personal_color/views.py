@@ -7,6 +7,8 @@ from .models import Document
 import cv2
 from django.conf import settings
 
+from .forms import InquiryForm
+
 # def index(request):
 #     if request.method == 'POST':
 #         form = DocumentForm(request.POST, request.FILES)
@@ -39,8 +41,9 @@ from django.conf import settings
 class IndexView(generic.TemplateView):
     template_name = "index.html"
 
-class InquiryView(generic.TemplateView):
+class InquiryView(generic.FormView):
     template_name = "form.html"
+    form_class = InquiryForm
 
 
 class IntroductionView(generic.TemplateView):
