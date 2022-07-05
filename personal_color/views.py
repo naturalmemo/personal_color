@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 #from .forms import DocumentForm
 from .models import Document
-import cv2
+#import cv2
 from django.conf import settings
 
 from .forms import InquiryForm
