@@ -9,14 +9,14 @@ from django import forms
 
 class InquiryForm(forms.Form):
     CHOICE = {
-    ('0','商品について'),
-    ('1','アプリについて'),
-    ('2','その他について'),
+    ('1','商品について'),
+    ('2','アプリについて'),
+    ('3','その他について'),
 }
 
     name = forms.CharField(label='お名前', max_length=30)
     email = forms.EmailField(label='メールアドレス')
-    title = forms.ChoiceField(label='お問い合わせの種類', widget=forms.RadioSelect, choices= CHOICE, initial=0)
+    title = forms.ChoiceField(label='お問い合わせの種類', widget=forms.Select, choices= CHOICE, initial=0)
     message = forms.CharField(label='お問い合わせ内容', widget=forms.Textarea)
 
     def __init__(self, *args, **kwargs):
@@ -31,3 +31,4 @@ class InquiryForm(forms.Form):
         self.fields['title'].widget.attrs['class']='form-control'
 
         self.fields['message'].widget.attrs['class']='form-control'
+        self.fields['message'].widget.attrs['rows']='3'
