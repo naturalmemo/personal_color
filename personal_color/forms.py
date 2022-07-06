@@ -1,7 +1,7 @@
-from dataclasses import field
-import email
+import os
 from django import forms
 from .models import Sample
+from django.core.mail import EmailMessage
 
 
 class InquiryForm(forms.Form):
@@ -31,7 +31,29 @@ class InquiryForm(forms.Form):
         self.fields['message'].widget.attrs['rows']='3'
 
 
-class ImgForm(forms.ModelForm):
+    def send_email(self):
+        name = self.cleaned_data['name']
+        email = self.cleaned_data['email']
+        title = self.cleaned_data['title']
+        message = self.cleaned_data['message']
+
+        subject = 'お問い合わせの種類{}'.format('title')
+        message = '送信者名: {0}\nメールアドレス: {1}\nお問い合わせ内容:\n{2}'.format(name, email, message)
+        from_email = os.environ.get('FROM_EMAIL')
+        to_list = [
+            os.environ.get('FROM_EMAIL')
+        ]
+        cc_list = [
+            email
+        ]
+
+        message = EmailMessage(subject=subject, body=message,
+        from_email=from_email, to=to_list, cc=cc_list)
+        message.send()
+
+
+class ImgForm(forms.Form):
     class Meta:
         model = Sample
         fields = ('img',)
+        image=forms.ImageField(widget=forms.FileInput(attrs={"class":""}))

@@ -86,7 +86,6 @@
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.img}}
-                    {% comment %} <input type="file" name="avatar"><br><br> {% endcomment %}
                     <button type="submit">送信</button>
                 </form>
             </div>
