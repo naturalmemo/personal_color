@@ -1,11 +1,8 @@
+from dataclasses import field
 import email
 from django import forms
-# #from .models import UploadImage
+from .models import Sample
 
-# class DocumentForm(forms.ModelForm):
-#     class Meta:
-#         model = UploadImage
-#         fields = ['image']
 
 class InquiryForm(forms.Form):
     CHOICE = {
@@ -32,3 +29,9 @@ class InquiryForm(forms.Form):
 
         self.fields['message'].widget.attrs['class']='form-control'
         self.fields['message'].widget.attrs['rows']='3'
+
+
+class ImgForm(forms.ModelForm):
+    class Meta:
+        model = Sample
+        fields = ('img',)
