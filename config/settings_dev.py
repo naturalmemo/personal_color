@@ -1,7 +1,5 @@
 from .settings_common import *
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9cipi(5+i^sc8380e37nzt7j78l7!)@4s%mo$jmnroa#xv@)sm'
+from .settings_local import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
