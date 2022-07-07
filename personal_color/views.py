@@ -16,11 +16,6 @@ class IndexView(generic.FormView):
     template_name = "index.html"
     form_class = ImgForm
 
-
-    # # doメソッドをオーバーライドする
-    # def get(self, request, *args, **kwargs):
-
-
     # postメソッドをオーバーライドする
     def post(self, request, *args, **kwargs):
         form = ImgForm(request.POST)
@@ -32,7 +27,9 @@ class IndexView(generic.FormView):
         # フォームから受け取った画像データを保存する
         sample = Sample()
         sample.img = request.FILES['img']
-        sample.save()
+
+        #追加予定
+        #sample.save()
 
         #sample_imgをresult.htmlで表示できるか
         #削除予定↓
@@ -48,14 +45,14 @@ class IndexView(generic.FormView):
 
 
         #結果をresult.htmlに送ってHTML生成
-        context={"form":ImgForm()}
-        return render(request, 'result.html', context
+        context={"img":sample_img}
+        return render(request, 'result.html', context)
         # {
         #     'form': self.form_class , 
         #     #'result': result ,
         #     'sample_img': sample_img,
         #     }
-        )
+        #)
 
 
 
@@ -81,3 +78,6 @@ class ResultView(generic.TemplateView):
 
 class LoginView(generic.TemplateView):
     template_name = "login.html"
+
+class LogoutView(generic.TemplateView):
+    template_name = "signup.html"

@@ -9,13 +9,15 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/introduction.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
     <body>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="/">パーソナルカラー診断</a>
+                <font face="筑紫ゴシック">
+                    <a class="navbar-brand" href="/">パーソナルカラー診断</a>
+                </font>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -23,17 +25,19 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/introduction">アプリ紹介</a></li>
                         <li class="nav-item"><a class="nav-link" href="/form">フォーム</a></li>
                         <li class="nav-item"><a class="nav-link" href="/login">ログイン</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">ログアウト</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout">ログアウト</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Header - set the background image for the header in the line below-->
         <header>
-            <div class="flex">
-                <p class="side-img"><img class="img-fluid rounded-circle mb-4" src="{% static 'img/clover.jpg' %}" alt="..." />
-                    <h1>アプリ紹介</h1>
-                </p>
+            <div class="flex justify-content-center">
+                <div class="m-2 py-4 bg-image-full" style="background-image: url('{% static 'img/pw-pale.png' %}')">
+                    <font face="筑紫ゴシック">
+                    <h1 class="my-1 card-header-tabs">アプリ紹介</h1>
+                    </font>
+                </div>
             </div>
         </header>
         <!-- Content section-->
@@ -41,24 +45,30 @@
             <div class="container my-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <h2>パーソナルカラーとは</h2>
-                        <p class="lead">好きな色の服を買ったけれど、なんだか似合っていない・・・と感じたことはありませんか？</p>
-                        <p class="mb-0">それはあなたのパーソナルカラーと服の色がマッチしていないからかもしれません。</p>
-                        <p class="mb-0">パーソナルカラーとは、ご自身の持っている肌の色・瞳の色によって生まれ持った</p>
-                        <p class="mb-0">お肌タイプのことで、春・夏・秋・冬の４つのグループに分けられます。</p>
-                        <p class="mb-0">ぜひご自身のパーソナルカラーを見つけてみてください。</p>
+                        <font face="筑紫ゴシック">
+                            <h2>パーソナルカラーとは</h2>
+                            <p class="lead">好きな色の服を買ったけれど、なんだか似合っていない・・・と感じたことはありませんか？</p>
+                            <p class="mb-0">それはあなたのパーソナルカラーと服の色がマッチしていないからかもしれません。パーソナルカラーとは、ご自身の持っている肌の色・瞳の色によって生まれ持ったお肌タイプのことで、～春・夏・秋・冬～の４つのグループに分けられます。ぜひご自身のパーソナルカラーを見つけてみてください。</p>
+                        </font>
+                        <div class="dd">
+                            <div class="row">
+                                <img src="{% static 'img/colored-pencils-gdcb499de0_640.jpg'%}" alt="" class="img-fluid">
+                              </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Content section-->
-        <section class="py-5">
+        <section class="py-0">
             <div class="container my-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <h2>STAFFのご紹介</h2>
-                        <p class="lead">パーソナルカラーは春・夏・秋・冬の4つの季節タイプに分かれています。</p>
-                        <p class="mb-0">初めての方はもちろん、今までパーソナルカラー診断を受けたり、ネットや雑誌で自己診断しても、何だか結果がしっくりこないと感じている方は、ぜひチェックしてみてください。</p>
+                        <font face="筑紫ゴシック"><hr>
+                            <h2>ＳＴＡＦＦのご紹介</h2>
+                            <p class="lead">パーソナルカラーは～春・夏・秋・冬～の4つの季節タイプに分かれています。</p>
+                            <p class="mb-0">初めての方はもちろん、今までパーソナルカラー診断を受けたり、ネットや雑誌で自己診断しても、何だか結果がしっくりこないと感じている方は、ぜひチェックしてみてください。</p>
+                        </font>
                     </div>
                 </div>
             </div>

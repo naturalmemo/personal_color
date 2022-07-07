@@ -1,3 +1,4 @@
+from .settings_common import *
 from pathlib import Path
 import os
 from django.contrib.messages import constants
@@ -29,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'personal_color.apps.PersonalColorConfig',
+    #'widget_tweaks',
 ]
 
 MIDDLEWARE = [

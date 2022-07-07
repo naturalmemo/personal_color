@@ -84,7 +84,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
+  background-color: #e9e9e9;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -11290,7 +11290,215 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center;
-  background-size:contain;                               /* 画像のサイズを指定    */
-  width:100%;                                            /* 横幅のサイズを指定    */
-  height:100%;
+  background-size: cover;
+}
+.bg-image-full-2 {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  background-size: contain;
+}
+.color-vw {
+  display: flex;
+  flex-wrap:wrap;
+  margin-left: 90px;
+}
+.color-vw li {
+  width: calc(100%/3);/*←画像を横に3つ並べる場合*/
+  box-sizing:border-box;
+}
+.color-vw li img {
+  max-width:100%; /*画像のはみだしを防ぐ*/
+  height: auto; /*画像の縦横比を維持 */
+}
+
+.col-lg-6 h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.clothes-vw {
+  display: flex;
+  flex-wrap:wrap;
+  margin: 50px;
+}
+.clothes-vw li {
+  width: calc(100%/3);/*←画像を横に3つ並べる場合*/
+  box-sizing:border-box;
+}
+.clothes-vw li img {
+  max-width:100%; /*画像のはみだしを防ぐ*/
+  height: auto; /*画像の縦横比を維持 */
+}
+.season-vw{
+	display: flex;
+	flex-wrap:wrap;
+  float: left;
+  margin-bottom: 50px;
+	
+}
+.season-vw li {
+	width: calc(100%/4);/*←画像を横に4つ並べる場合*/
+	padding:0;
+	box-sizing:border-box;
+}
+.season-vw li img {
+	max-width:100%; /*画像のはみだしを防ぐ*/
+	height: auto; /*画像の縦横比を維持 */
+}
+.diagnose {
+  text-align: center;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex side-txt {
+  width: 100%;
+  font-size: large;
+}
+/* container */
+.wrapper{
+  width:100%;
+}
+.wrapper .container{
+  max-width:1000px;
+  margin:0px auto;
+  padding:80px 0px;
+}
+/* content */
+.wrapper .content .heading{
+  margin:0px 0px 40px 0px;
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .wrapper .content .list {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+}
+.wrapper .content .list-item {
+  margin:50px 0px;
+  padding:0px 50px;
+  text-align:center;
+}
+@media (min-width: 992px) {
+  .wrapper .content .list-item {
+      margin:0px;
+      width:calc(100% / 3);
+  }
+}
+.wrapper .content .list-item .image{
+  display:block;
+  width:100%;
+  max-width:300px;
+  margin:0px auto 20px auto;
+  border-radius:60%;
+}
+.wrapper .content .list-item .text{
+  line-height:1.8rem;
+  font-size:0.8rem;
+  color:#666666;
+}
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+
+/* fontawesome */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+/* Simple Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* body */
+body {
+  background: #e9e9e9;
+  color: #5e5e5e;
+  font: 400 87.5%/1.5em 'Open Sans', sans-serif;
+}
+
+/* Form Layout */
+.form-wrapper {
+  background: #fafafa;
+  margin: 3em auto;
+  padding: 0 1em;
+  max-width: 370px;
+}
+
+h1 {
+  text-align: center;
+  padding: 1em 0;
+}
+
+form {
+  padding: 0 1.5em;
+}
+
+.form-item {
+  margin-bottom: 0.75em;
+  width: 100%;
+}
+
+.form-item input {
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  height: 50px;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.form-item input:focus {
+  border-bottom: 2px solid #c0c0c0;
+  outline: none;
+}
+
+.button-panel {
+  margin: 2em 0 0;
+  width: 100%;
+}
+
+.button-panel .button {
+  background: #f16272;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition:  0.3s ease-in-out;
+  width: 100%;
+}
+
+.button:hover {
+  background: #ee3e52;
+}
+
+.form-footer {
+  font-size: 1em;
+  padding: 2em 0;
+  text-align: center;
+}
+
+.form-footer a {
+  color: #8c8c8c;
+  text-decoration: none;
+  transition: border-color 0.3s;
+}
+
+.form-footer a:hover {
+  border-bottom: 1px dotted #8c8c8c;
 }
