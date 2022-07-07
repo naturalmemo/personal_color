@@ -9,13 +9,15 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/introduction.css' %}" rel="stylesheet" />
     </head>
     <body>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="/">パーソナルカラー診断</a>
+                <font face="筑紫ゴシック">
+                    <a class="navbar-brand" href="/">パーソナルカラー診断</a>
+                </font>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -23,16 +25,18 @@
                         <li class="nav-item"><a class="nav-link" href="/introduction">アプリ紹介</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/form">フォーム</a></li>
                         <li class="nav-item"><a class="nav-link" href="/login">ログイン</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">ログアウト</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout">ログアウト</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Header - set the background image for the header in the line below-->
         <header>
-            <div class="flex">
-                <p class="side-img"><img class="img-fluid rounded-circle mb-4" src="{% static 'img/clover.jpg' %}" alt="..." />
-                    <h1>コンタクトフォーム</h1>
+            <div class="flex justify-content-center">
+                <div class="m-1 py-3 bg-image-full" style="background-image: url('{% static 'img/bw-pale.png' %}')">
+                    <font face="筑紫ゴシック">
+                        <h1 class="my-0 card-header-tabs">コンタクト<br>フォーム</h1>
+                    </font>
                 </p>
             </div>
         </header>
@@ -57,16 +61,17 @@
                 </div>
                 <div class="row center-block text-center">
                     <div class="col-1"></div>
-                    <div class="col-5">
-                        <button class="btn btn-outline-secondary btn-block" type="submit">送信</button>
+                        <div class="col-5">
+                            <button class="btn btn-outline-primary btn-block" type="submit">送信</button>
                         </form>
-                    </div>
+                        </div>
                 </div>
-                
                 <br>
             </div>
         </section>
-        <!-- Footer-->
+        <div class="my-0">
+            <img src="{% static 'img/new-background-ga8ed9e98d_1920.jpg'%}" alt="" class="img-fluid">
+        </div>
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">&copy; Personal Color GroupC 2022</p></div>
         </footer>
