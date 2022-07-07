@@ -9,7 +9,7 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/introduction.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -48,11 +48,11 @@
             {% endif %}
 
             <div class="flex justify-content-center">
-                <div class="m-1 py-3 bg-image-full" style="background-image: url('{% static 'img/bw-pale.png' %}')">
+                <div class="m-1 py-1 px-0 bg-image-full-2" style="background-image: url('{% static 'img/bw-pale.png' %}')">
                     <font face="筑紫ゴシック">
-                        <h1 class="my-0 card-header-tabs">コンタクト<br>フォーム</h1>
+                        <h1 class="my-1 card-header-tabs">コンタクト<br>フォーム</h1>
                     </font>
-                </p>
+                </div>
             </div>
         </header>
         <!-- Content section-->
@@ -76,7 +76,7 @@
                 </div>
                 <div class="row center-block text-center">
                     <div class="col-1"></div>
-                        <div class="col-5">
+                        <div class="row-cols-6 my-3">
                             <button class="btn btn-outline-primary btn-block" type="submit">送信</button>
                         </form>
                         </div>
