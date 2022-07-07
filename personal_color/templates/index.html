@@ -97,7 +97,7 @@
             <div class="text-center lead">
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form.img|add_class:'text-white btn-xl' }}<br><br>
+                    {{ form.img }}<br><br>
                     <button class="btn btn-primary btn-xl" type="submit">送信</button>
                 </font>
                 </form>

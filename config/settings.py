@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'personal_color.apps.PersonalColorConfig',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
