@@ -6,9 +6,9 @@ from django.core.mail import EmailMessage
 
 class InquiryForm(forms.Form):
     CHOICE = {
-    ('0','商品について'),
-    ('1','アプリについて'),
-    ('2','その他について'),
+    ('0', 'アプリについて'),
+    ('1', '商品について'),
+    ('2', 'その他について'),
 }
 
     name = forms.CharField(label='お名前', max_length=30)
