@@ -28,7 +28,7 @@ class IndexView(generic.FormView):
         sample = Sample()
         sample.img = request.FILES['img']
 
-        #追加予定
+        #テストで追加予定
         #sample.save()
 
         #sample_imgをresult.htmlで表示できるか
@@ -73,11 +73,9 @@ class IntroductionView(generic.TemplateView):
     template_name = "introduction.html"
 
 
-class ResultView(generic.TemplateView):
-    template_name = "result.html"
-
 class LoginView(generic.TemplateView):
     template_name = "login.html"
+    
 
 class LogoutView(generic.TemplateView):
     template_name = "signup.html"
