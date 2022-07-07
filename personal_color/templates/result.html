@@ -9,32 +9,34 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/result.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </head>
     <body>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="/">パーソナルカラー診断</a>
+                <font face="筑紫ゴシック">
+                    <a class="navbar-brand" href="/">パーソナルカラー診断</a>
+                </font>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">ホーム</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">ホーム</a></li>
                         <li class="nav-item"><a class="nav-link" href="/introduction">アプリ紹介</a></li>
                         <li class="nav-item"><a class="nav-link" href="/form">フォーム</a></li>
                         <li class="nav-item"><a class="nav-link" href="/login">ログイン</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">ログアウト</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/logout">ログアウト</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Header-->
-        <header class="bg-dark py-5">
+        <header class="py-5 bg-image-full" style="background-image: url('{% static 'img/blue-g3334803a7_1280.jpg' %}')" >
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">診断結果</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">あなたのパーソナルカラーはこちらです</p>
+                    <h1 class="display-4 fw-bolder ">診断結果</h1>
+                    <p class="lead fw-normal mb-0">あなたのパーソナルカラーはこちらです</p>
                 </div>
             </div>
         </header>
@@ -55,15 +57,9 @@
         </section>
         <!-- Image element - set the background image for the header in the line below-->
         <ul style="list-style: none; " class="color-vw">
-            <li><img src="{% static '/img/coral.png' %}" alt=""></a>
-                <p>coral</p>
-            </li>
-            <li><img src="{% static '/img/wheat.png' %}" alt=""></a>
-                <p>wheat</p>
-            </li>
-            <li><img src="{% static '/img/teal.png' %}" alt=""></a>
-                <p>teal</p>
-            </li>
+            <li><img src="{% static '/img/color/haru-pink.png' %}" alt=""></a></li>
+            <li><img src="{% static '/img/color/haru-white.png' %}" alt=""></a></li>
+            <li><img src="{% static '/img/color/haru-blue.png' %}" alt=""></a></li>
         </ul>
         <!-- Image element - set the background image for the header in the line below-->
         <ul style="list-style: none; " class="clothes-vw">
