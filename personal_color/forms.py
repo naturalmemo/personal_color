@@ -6,9 +6,9 @@ from django.core.mail import EmailMessage
 
 class InquiryForm(forms.Form):
     CHOICE = {
-    ('1','商品について'),
-    ('2','アプリについて'),
-    ('3','その他について'),
+    ('0','商品について'),
+    ('1','アプリについて'),
+    ('2','その他について'),
 }
 
     name = forms.CharField(label='お名前', max_length=30)
@@ -38,7 +38,7 @@ class InquiryForm(forms.Form):
         message = self.cleaned_data['message']
 
         subject = 'お問い合わせの種類{}'.format('title')
-        message = '送信者名: {0}\nメールアドレス: {1}\nお問い合わせ内容:\n{2}'.format(name, email, message)
+        message = '送信者名: {0}\nメールアドレス: {1}\nお問い合わせの種類{2}\nお問い合わせ内容:\n{3}'.format(name, email, title, message)
         from_email = os.environ.get('FROM_EMAIL')
         to_list = [
             os.environ.get('FROM_EMAIL')

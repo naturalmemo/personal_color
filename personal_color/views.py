@@ -15,6 +15,11 @@ class IndexView(generic.FormView):
     template_name = "index.html"
     form_class = ImgForm
 
+
+    # # doメソッドをオーバーライドする
+    # def get(self, request, *args, **kwargs):
+
+
     # postメソッドをオーバーライドする
     def post(self, request, *args, **kwargs):
         form = ImgForm(request.POST)
@@ -53,10 +58,11 @@ class IndexView(generic.FormView):
 
 
 
+
 class InquiryView(generic.FormView):
     template_name = "form.html"
     form_class = InquiryForm
-    success_url: reverse_lazy('personal_color:form')
+    success_url = reverse_lazy('personal_color:form')
 
     def form_valid(self, form):
         form.send_email()
