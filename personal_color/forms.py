@@ -52,8 +52,7 @@ class InquiryForm(forms.Form):
         message.send()
 
 
-class ImgForm(forms.Form):
+class ImgForm(forms.ModelForm):
     class Meta:
         model = Sample
         fields = ('img',)
-        image=forms.ImageField(widget=forms.FileInput(attrs={"class":""}))
