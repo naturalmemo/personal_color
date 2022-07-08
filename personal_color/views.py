@@ -79,3 +79,6 @@ class LoginView(generic.TemplateView):
 
 class LogoutView(generic.TemplateView):
     template_name = "signup.html"
+
+class MembersView(generic.TemplateView):
+    template_name = "members.html"
