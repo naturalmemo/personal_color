@@ -5,11 +5,11 @@ from django.core.mail import EmailMessage
 
 
 class InquiryForm(forms.Form):
-    CHOICE = {
-    ('0', 'アプリについて'),
-    ('1', '商品について'),
-    ('2', 'その他について'),
-}
+    CHOICE = [
+        ( 0, 'アプリについて'),
+        ( 1, '商品について'),
+        ( 2, 'その他について'),
+    ]
 
     name = forms.CharField(label='お名前', max_length=30)
     email = forms.EmailField(label='メールアドレス')
@@ -52,7 +52,15 @@ class InquiryForm(forms.Form):
         message.send()
 
 
-class ImgForm(forms.ModelForm):
+class PersonalForm(forms.ModelForm):
+    # gender = forms.ModelChoiceField(
+    #     label='gender',
+    #     queryset=Sample.objects.all(),
+    #     widget=forms.RadioSelect,
+    #     empty_label=None,
+    # )
     class Meta:
         model = Sample
-        fields = ('img',)
+
+        fields = ('gender', 'img')
+        #fields = ('img',)
