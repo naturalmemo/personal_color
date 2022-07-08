@@ -95,10 +95,17 @@
                     <label for="r_female">女性 <input id="r_female" type="radio" name="gender" value="女性"></label>
                     <label for="r_male">男性 <input id="r_male" type="radio" name="gender" value="男性"></label>
                     <label for="r_others">その他 <input id="r_others" type="radio" name="gender" value="その他"></label>
+                    
             </div>
             <div class="text-center lead">
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
+                    {% comment %} {% for value, text in form.gender %}
+                        <li>{{value}}
+                         <input name="gender" type="radio" value="{{ value }}" {% if value == form.gender.value %}checked{% endif %}>{{ text }}
+                        </li>
+                    {% endfor %}  {% endcomment %}
+                    {{ form.gender }}
                     {{ form.img }}<br><br>
                     <button class="btn btn-primary btn-xl" type="submit">送信</button>
                 </font>
