@@ -27,7 +27,7 @@ class IndexView(generic.FormView):
         # フォームから受け取ったデータをmodelのフィールドに格納
         sample = Sample()
         sample.img = request.FILES['img']
-        #sample.gender = request.FILES['gender']
+        sample.gender = request.POST.get('gender', None)
 
         #テストで追加予定
         #sample.save()
@@ -36,7 +36,6 @@ class IndexView(generic.FormView):
 
         #画像判定モデルの使用
         from personal_color_finder import personal_color_finder
-        img = request.FILES['img']
         base_value = personal_color_finder(img)
 
         #モデルで結果をDBから取り出し
