@@ -64,3 +64,7 @@ class PersonalForm(forms.ModelForm):
 
         fields = ('gender', 'img')
         #fields = ('img',)
+
+        widgets = {
+            'gender':forms.RadioSelect
+        }

@@ -11,5 +11,8 @@ CHOICES = [
 ]
 
 class Sample(models.Model):
-    gender = models.TextField(verbose_name='gender', choices=CHOICES, blank=False, null=False)
+    gender = models.CharField(verbose_name='gender', choices=CHOICES, blank=False, null=False, max_length=100, default=1)
     img = models.ImageField(upload_to='media/', verbose_name='img', blank=False, null=False)
+
+    def __str__(self):
+        return str(self.gender)
