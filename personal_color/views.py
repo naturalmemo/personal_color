@@ -36,9 +36,10 @@ class IndexView(generic.FormView):
         print(type(img))
 
         #画像判定モデルの使用
-        from personal_color_finder import personal_color_finder
+        from .personal_color_finder.main import recog
 
-        personal_color_finder.main()
+        print(recog())
+
 
         #モデルで結果をDBから取り出し
         #ここに処理を書く
