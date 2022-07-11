@@ -1,77 +1,80 @@
 {% extends 'base.html' %}
 {% load static %}
 
-        {% block header %}
-        <!-- Header - set the background image for the header in the line below-->
-        <header>
-            <div class="flex justify-content-center">
-                <div class="m-2 py-4 bg-image-full-2" style="background-image: url('{% static 'img/bw-pale.png' %}')">
-                    <font face="筑紫ゴシック">
-                    <h1 class="my-1 card-header-tabs">メンバー紹介</h1>
-                    </font>
-                </div>
+{% block header %}
+<!-- Header - set the background image for the header in the line below-->
+<header>
+    <div class="flex justify-content-center">
+        <div class="m-2 py-4 bg-image-full-2" style="background-image: url('{% static 'img/bw-pale.png' %}')">
+            <font face="筑紫ゴシック">
+            <h1 class="my-1 card-header-tabs">メンバー紹介</h1>
+            </font>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% block contents %}
+<!-- Content section-->
+<section class="py-0">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <font face="筑紫ゴシック">
+                    <h2>5人の愉快な仲間たち</h2>
+                    <p class="lead">2022年6月にチームを結成し、7月にアプリ完成予定です。</p>
+                    <p class="mb-0">自分にできることを考え行動し、お互いに支え合いながらアプリを作成！<br>
+                        チームでつくる素晴らしさを体感しました。</p>
+                </font>
             </div>
-        </header>
-        {% endblock %}
-        {% block contents %}
-        <!-- Content section-->
-        <section class="py-0">
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <font face="筑紫ゴシック">
-                            <h2>5人の愉快な仲間たち</h2>
-                            <p class="lead">2022年6月にチームを結成し、7月にアプリ完成予定です。</p>
-                            <p class="mb-0">自分にできることを考え行動し、お互いに支え合いながらアプリを作成！チームでつくる素晴らしさを体感しました。</p>
-                        </font>
+        </div>
+    </div>
+</section>
+<section class="wrapper">
+    <div class="container">
+        <div class="content">
+            <div class="list">
+                <div class="list-item">
+                    <img src="{% static 'img/araiii.jpg' %}" class="image">
+                    <div class="text">ARAI<br>
+                    担当：基本設計、進捗管理、Django、データベース設計
+                    </div>
+                </div>
+                <div class="list-item">
+                    <img src="{% static 'img/gazou.png' %}" class="image">
+                    <div class="text">ONOGI<br>
+                    担当：Django
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="wrapper">
-            <div class="container">
-                <div class="content">
-                    <div class="list">
-                        <div class="list-item">
-                            <img src="{% static 'img/araiii.jpg' %}" class="image">
-                            <div class="text">ARAI<br>
-                            
-                            </div>
-                        </div>
-                        <div class="list-item">
-                            <img src="{% static 'img/gazou.png' %}" class="image">
-                            <div class="text">ONOGI<br>
-                            
-                            </div>
-                        </div>
+        </div>
+    </div>
+</section>
+<section class="wrapper">
+    <div class="container">
+        <div class="content">
+            <div class="list">
+                <div class="list-item">
+                    <img src="{% static 'img/tetra.jpg' %}" class="image">
+                    <div class="text">IWAMOTO<br>
+                    美味しいもの巡りが大好きです！<br>
+                    担当：画面設計、フロントエンド
+                    </div>
+                </div>
+                <div class="list-item">
+                    <img src="{% static 'img/tamu1.png' %}" class="image">
+                    <div class="text">TAMURA<br>
+                    担当：データベース設計、画像認識モデルの作成
+                    </div>
+                </div>    
+                <div class="list-item">
+                    <img src="{% static 'img/lee.jpg' %}" class="image">
+                    <div class="text">Lee(メガロッパの姿)<br>
+                    ウラでこのチームを牛耳っていました！<br>
+                    担当：神
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="wrapper">
-            <div class="container">
-                <div class="content">
-                    <div class="list">
-                        <div class="list-item">
-                            <img src="{% static 'img/tetra.jpg' %}" class="image">
-                            <div class="text">IWAMOTO<br>
-                            
-                            </div>
-                        </div>
-                        <div class="list-item">
-                            <img src="{% static 'img/tamu1.png' %}" class="image">
-                            <div class="text">TAMURA<br>
-                            
-                            </div>
-                        </div>    
-                        <div class="list-item">
-                            <img src="{% static 'img/lee.jpg' %}" class="image">
-                            <div class="text">Lee(メガロッパの姿)<br>
-                            ウラでこのチームを牛耳っていました！
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        {% endblock %}
+        </div>
+    </div>
+</section>
+{% endblock %}

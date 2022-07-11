@@ -1,49 +1,47 @@
 {% extends 'base.html' %}
 {% load static %}
 
-        {% block header %}
-        <!-- Header-->
-        <header class="py-5 bg-image-full" style="background-image: url('{% static 'img/blue-g3334803a7_1280.jpg' %}')" >
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder ">診断結果</h1>
-                    <p class="lead fw-normal mb-0">あなたのパーソナルカラーはこちらです</p>
-                </div>
+{% block header %}
+<!-- Header-->
+<header class="py-5 bg-image-full" style="background-image: url('{% static 'img/blue-g3334803a7_1280.jpg' %}')" >
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder ">診断結果</h1>
+            <p class="lead fw-bold mb-0">あなたのパーソナルカラーはこちらです</p>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% block contents %}
+<!-- Content section-->
+<section class="py-5">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <h2>春タイプ</h2>
+                <p class="lead">春のやさしい暖色の濁りのない彩度の高い色がお似合いのタイプです。周りの人を楽しくさせてしまう明るい印象が特徴です。</p>
+                <h2>あなたに似合うカラー</h2>
+                <p class="lead">春タイプはひよこ色、アップルグリーン、ピーチピンクなど高彩度な黄色が入った色がお似合いです。</p>
             </div>
-        </header>
-        {% endblock %}
-        {% block contents %}
-        <!-- Content section-->
-        <section class="py-5">
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <h2>春タイプ</h2>
-                        <p class="lead">春のやさしい暖色の濁りのない彩度の高い色がお似合いのタイプです。</p>
-                        <p class="lead">周りの人を楽しくさせてしまう明るい印象が特徴です。</p>
-                        <h2>あなたに似合うカラー</h2>
-                        <p class="lead">春タイプはひよこ色、アップルグリーン、ピーチピンクなど</p>
-                        <p class="lead">高彩度な黄色が入った色がお似合いです。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Image element - set the background image for the header in the line below-->
-        <ul style="list-style: none; " class="color-vw">
-            <li><img src="{% static '/img/color/haru-pink.png' %}" alt=""></a></li>
-            <li><img src="{% static '/img/color/haru-white.png' %}" alt=""></a></li>
-            <li><img src="{% static '/img/color/haru-blue.png' %}" alt=""></a></li>
-        </ul>
-        <!-- Image element - set the background image for the header in the line below-->
-        <ul style="list-style: none; " class="clothes-vw">
-            <li><img src="{% static '/img/photosession-g579e45baa_640.jpg' %}" alt=""></a></li>
-            <li><img src="{% static '/img/woman-ga0dc35eb1_640.jpg' %}" alt=""></a></li>
-            <li><img src="{% static '/img/trousers-gf7e1cad3e_640.jpg' %}" alt=""></a></li>
-        </ul>
-        <!-- Content section-->
-        <section style="text-align:center" class="twitter">
-            <p>twitterでつぶやく</p>
-            <p>↓↓</p>
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </section>
-        {% endblock %}
+        </div>
+    </div>
+</section>
+<!-- Image element - set the background image for the header in the line below-->
+<ul style="list-style: none; " class="color-vw">
+    <li><img src="{% static '/img/color/haru-pink.png' %}" alt=""></a></li>
+    <li><img src="{% static '/img/color/haru-white.png' %}" alt=""></a></li>
+    <li><img src="{% static '/img/color/haru-blue.png' %}" alt=""></a></li>
+</ul>
+<!-- Image element - set the background image for the header in the line below-->
+<ul style="list-style: none; " class="clothes-vw">
+    <li><img src="{% static '/img/photosession-g579e45baa_640.jpg' %}" alt=""></a></li>
+    <li><img src="{% static '/img/woman-ga0dc35eb1_640.jpg' %}" alt=""></a></li>
+    <li><img src="{% static '/img/trousers-gf7e1cad3e_640.jpg' %}" alt=""></a></li>
+</ul>
+<!-- Content section-->
+<section style="text-align:center" class="twitter">
+    <p>twitterでつぶやく</p>
+    <p>↓↓</p>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</section>
+{% endblock %}

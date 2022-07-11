@@ -1,64 +1,64 @@
 {% extends 'base.html' %}
 {% load static %}
 
-        {% block header %}
-        <!-- Header - set the background image for the header in the line below-->
-        <header>
-            {% if messages %}
-            <div class="container may-div-style">
-                <div class="row">
-                    <ul class="messages" style="list-style: none;">
-                        {% for message in messages %}
-                        <li {% if message.tags %} class="{{ message.tags }}"
-                        {% endif %}>
-                        {{ message }}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-            {% endif %}
-
-            <div class="flex justify-content-center">
-                <div class="m-1 py-1 px-0 bg-image-full-2" style="background-image: url('{% static 'img/gw-pale.png' %}')">
-                    <font face="筑紫ゴシック">
-                        <h1 class="my-1 card-header-tabs">コンタクト<br>フォーム</h1>
-                    </font>
-                </div>
-            </div>
-        </header>
-        {% endblock %}
-        {% block contents %}
-        <!-- Content section-->
-        <section class="py-0">
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <form method="post">
-                            {% csrf_token %}
-
-                            {{ form.non_field_errors }}
-
-                            {% for field in form %}
-                            <div class="form-group">
-                                {{ field.label_tag }}
-                                {{ field }}
-                                {{ field.errors }}
-                            </div>
-                            {% endfor %}
-                    </div>
-                </div>
-                <div class="row center-block text-center">
-                    <div class="col-1"></div>
-                        <div class="row-cols-6 my-3">
-                            <button class="btn btn-outline-primary btn-block" type="submit">送信</button>
-                        </form>
-                        </div>
-                </div>
-                <br>
-            </div>
-        </section>
-        <div class="my-0">
-            <img src="{% static 'img/new-background-ga8ed9e98d_1920.jpg'%}" alt="" class="img-fluid">
+{% block header %}
+<!-- Header - set the background image for the header in the line below-->
+<header>
+    {% if messages %}
+    <div class="container may-div-style">
+        <div class="row">
+            <ul class="messages" style="list-style: none;">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"
+                {% endif %}>
+                {{ message }}
+                </li>
+                {% endfor %}
+            </ul>
         </div>
-        {% endblock %}
+    </div>
+    {% endif %}
+
+    <div class="flex justify-content-center">
+        <div class="m-1 py-1 px-0 bg-image-full-2" style="background-image: url('{% static 'img/gw-pale.png' %}')">
+            <font face="筑紫ゴシック">
+                <h1 class="my-1 card-header-tabs">コンタクト<br>フォーム</h1>
+            </font>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% block contents %}
+<!-- Content section-->
+<section class="py-0">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <form method="post">
+                    {% csrf_token %}
+
+                    {{ form.non_field_errors }}
+
+                    {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {{ field.errors }}
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+        <div class="row center-block text-center">
+            <div class="col-1"></div>
+                <div class="row-cols-6 my-3">
+                    <button class="btn btn-outline-primary btn-block" type="submit">送信</button>
+                </form>
+                </div>
+        </div>
+        <br>
+    </div>
+</section>
+<div class="my-0">
+    <img src="{% static 'img/new-background-ga8ed9e98d_1920.jpg'%}" alt="" class="img-fluid">
+</div>
+{% endblock %}

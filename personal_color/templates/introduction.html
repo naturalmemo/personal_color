@@ -1,37 +1,48 @@
 {% extends 'base.html' %}
 {% load static %}
 
-        {% block header %}
-        <!-- Header - set the background image for the header in the line below-->
-        <header>
-            <div class="flex justify-content-center">
-                <div class="m-2 py-4 bg-image-full" style="background-image: url('{% static 'img/pw-pale.png' %}')">
-                    <font face="筑紫ゴシック">
-                    <h1 class="my-1 card-header-tabs">アプリ紹介</h1>
-                    </font>
+{% block header %}
+<!-- Header - set the background image for the header in the line below-->
+<header>
+    <div class="flex justify-content-center">
+        <div class="m-2 py-4 bg-image-full" style="background-image: url('{% static 'img/pw-pale.png' %}')">
+            <font face="筑紫ゴシック">
+            <h1 class="my-1 card-header-tabs">アプリ紹介</h1>
+            </font>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% block contents %}
+<!-- Content section-->
+<section class="py-0">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <font face="筑紫ゴシック">
+                    <h2>パーソナルカラーとは</h2>
+                    <p class="lead">好きな色の服を買ったけれど、なんだか似合っていない・・・と感じたことはありませんか？</p>
+                    <p class="mb-0">それはあなたのパーソナルカラーと服の色がマッチしていないからかもしれません。パーソナルカラーとは、ご自身の持っている肌の色・瞳の色によって生まれ持ったお肌タイプのことで、～春・夏・秋・冬～の４つのグループに分けられます。ぜひご自身のパーソナルカラーを見つけてみてください。</p>
+                </font>
+                <div class="dd">
+                    <div class="row">
+                        <img src="{% static 'img/colored-pencils-gdcb499de0_640.jpg'%}" alt="" class="img-fluid">
+                    </div>
                 </div>
-            </div>
-        </header>
-        {% endblock %}
-        {% block contents %}
-        <!-- Content section-->
-        <section class="py-0">
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <font face="筑紫ゴシック">
-                            <h2>パーソナルカラーとは</h2>
-                            <p class="lead">好きな色の服を買ったけれど、なんだか似合っていない・・・と感じたことはありませんか？</p>
-                            <p class="mb-0">それはあなたのパーソナルカラーと服の色がマッチしていないからかもしれません。パーソナルカラーとは、ご自身の持っている肌の色・瞳の色によって生まれ持ったお肌タイプのことで、～春・夏・秋・冬～の４つのグループに分けられます。ぜひご自身のパーソナルカラーを見つけてみてください。</p>
-                        </font>
-                        <div class="dd">
-                            <div class="row">
-                                <img src="{% static 'img/colored-pencils-gdcb499de0_640.jpg'%}" alt="" class="img-fluid">
-                              </div>
-                            </div>
-                        </div>
+            <div class="my-5">
+                <font face="筑紫ゴシック">
+                    <br><hr>
+                    <h2>パーソナルカラーの判定方法</h2>
+                    <p class="lead">Python（パイソン）を用いた画像認識モデルで、あなたの写真から瞳の色、肌の色を検出し、ベースタイプを判定！</p>
+                    <p class="mb-0"></p>
+                </font>
+                <div class="dd">
+                    <div class="row">
+                        <img src="{% static 'img/magnifying-glass-gce559f432_640.jpg'%}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
-        </section>
-        {% endblock %}
+        </div>
+    </div>
+</section>
+{% endblock %}
