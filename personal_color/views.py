@@ -31,7 +31,7 @@ class IndexView(generic.FormView):
 
         #テストで追加予定
         #sample.save()
-
+        print(sample.gender)
         img = sample.img
 
         #画像判定モデルの使用
