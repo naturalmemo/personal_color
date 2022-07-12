@@ -25,22 +25,21 @@ class Sample(models.Model):
 
 
 
-# class Base_type(models.Model):
-#     id = models.IntegerField()
-#     name = models.CharField(max_length=10)
-#     base_doc = models.CharField(max_length=20)
-    
-# class Colors(models.Model):
-#     id = models.IntegerField()
-#     name = models.CharField(max_length=10)
-#     base_type_id = models.IntegerField()
+class Base_type(models.Model):
+    base_type_id = models.IntegerField()
+    base_type_name = models.CharField(max_length=10)
+    base_type_base_doc = models.CharField(max_length=20)
 
-# class Items(models.Model):
-#     id = models.IntegerField()
-#     color_id = models.IntegerField()
-#     sex = models.IntegerField()
-#     name = models.CharField(max_length=20)
-#     explanate = models.CharField(max_length=100)
-#     price = models.IntegerField()
-#     size = models.ImageField()
-#     maker =  models.CharField(max_length=20)
+class Colors(models.Model):
+    Colors_id = models.IntegerField()
+    Colors_name = models.CharField(max_length=10)
+    Colors_id = models.IntegerField()
+
+class Items(models.Model):
+    Items_id = models.IntegerField()
+    Items_sex = models.IntegerField()
+    Items_name = models.CharField(max_length=20)
+    Items_explanate = models.CharField(max_length=100)
+    Items_price = models.IntegerField()
+    Items_size = models.ImageField()
+    Items_maker =  models.CharField(max_length=20)
