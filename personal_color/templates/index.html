@@ -63,6 +63,16 @@
     <div class="text-center lead">
         <form method="post" enctype="multipart/form-data">
             <font face="筑紫ゴシック">
+                <p class="mb-5 btn-outline-danger">※診断の精度を上げる為に、顔写真はできるだけ明るい自然光で、正面からの撮影をお願いします。<br>
+                    メガネやカラーコンタクトは外してください。</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                            <p>例</p> 
+                            <img src="{% static 'img/sample.png' %}" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
             {% csrf_token %}
             性別: 
             {% for value in form.gender %}
