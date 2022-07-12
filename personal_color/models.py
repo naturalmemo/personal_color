@@ -1,9 +1,9 @@
 from unicodedata import name
 from django.db import models
 from numpy import size
-from config.settings import MEDIA_ROOT
+# from config.settings import MEDIA_ROOT
 
-from config.settings_common import MEDIA_URL
+# from config.settings_common import MEDIA_URL
 
 from django.db import models
 
@@ -27,19 +27,19 @@ class Sample(models.Model):
 
 class Base_type(models.Model):
     base_type_id = models.IntegerField()
-    base_type_name = models.CharField(max_length=10,null=True)
+    base_type_name = models.CharField(max_length=10,null=False)
     base_type_base_doc = models.CharField(max_length=20)
 
 class Colors(models.Model):
     Colors_id = models.IntegerField()
-    Colors_name = models.CharField(max_length=10,null=True)
+    Colors_name = models.CharField(max_length=10,null=False)
     Colors_id = models.IntegerField()
 
 class Items(models.Model):
     Items_id = models.IntegerField()
     Items_sex = models.IntegerField()
-    Items_name = models.CharField(max_length=20,null=True)
-    Items_explanate = models.CharField(max_length=100,null=True)
+    Items_name = models.CharField(max_length=20,null=False)
+    Items_explanate = models.CharField(max_length=100,null=False)
     Items_price = models.IntegerField()
     Items_size = models.ImageField()
     Items_maker =  models.CharField(max_length=20)

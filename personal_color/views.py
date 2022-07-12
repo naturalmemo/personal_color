@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views import generic
 from django.contrib import messages
 from .forms import InquiryForm, PersonalForm
-from .models import Sample
+from .models import Sample, Items
 from config.settings import *
 import shutil
 import os
@@ -15,8 +15,7 @@ logger = logging.getLogger(__name__)
 class IndexView(generic.FormView):
     template_name = "index.html"
     form_class = PersonalForm
-
-    # postメソッドをオーバーライドする
+# postメソッドをオーバーライドする
     def post(self, request, *args, **kwargs):
         form = PersonalForm(request.POST)
 
