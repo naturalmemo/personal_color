@@ -2,6 +2,19 @@
 {% load static %}
 
 {% block header %}
+<!-- ローディング画面 -->
+<div id="loading">
+<div class="spinner"></div>
+</div>
+
+<!-- コンテンツ部分 -->
+<div class="gallery">
+<div class="item">
+    <img src="images/img1.jpg" alt="">
+</div>
+<div class="item">
+    <img src="images/img2.jpg" alt="">
+</div>
 <!-- Header-->
 <header class="py-5 bg-image-full" style="background-image: url('{% static 'img/blue-g3334803a7_1280.jpg' %}')" >
     <div class="container px-4 px-lg-5 my-5">
@@ -34,14 +47,15 @@
 </ul>
 <!-- Image element - set the background image for the header in the line below-->
 <ul style="list-style: none; " class="clothes-vw">
-    <li><img src="{% static '/img/clothes/haru-b1.jpg' %}" alt=""></a></li>
-    <li><img src="{% static '/img/clothes/haru-b2.jpg' %}" alt=""></a></li>
-    <li><img src="{% static '/img/clothes/haru-b3.jpg' %}" alt=""></a></li>
+    <li><img src="{% static '/img/w-clothes/haru-b1.jpg' %}" alt=""></a></li>
+    <li><img src="{% static '/img/w-clothes/haru-b2.jpg' %}" alt=""></a></li>
+    <li><img src="{% static '/img/w-clothes/haru-b3.jpg' %}" alt=""></a></li>
 </ul>
 <!-- Content section-->
-<section style="text-align:center" class="twitter">
+<section style="text-align:center" class="twitter mb-5">
     <p>twitterでつぶやく</p>
     <p>↓↓</p>
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </section>
+</div>
 {% endblock %}
