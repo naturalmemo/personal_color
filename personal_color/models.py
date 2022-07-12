@@ -1,4 +1,6 @@
+from unicodedata import name
 from django.db import models
+from numpy import size
 from config.settings import MEDIA_ROOT
 
 from config.settings_common import MEDIA_URL
@@ -21,22 +23,24 @@ class Sample(models.Model):
 
 
 
-class Base_type(models.Model):
-    ID = models.IntegerField()
-    NAME = models.CharField(max_length=10)
-    BASE_DOC = models.CharField(max_length=20)
-    
-class Colors(models.Model):
-    ID = models.IntegerField()
-    NAME = models.CharField(max_length=10)
-    BASE_TYPE_ID = models.IntegerField()
 
-class Items(models.Model):
-    ID = models.IntegerField()
-    COLOR_ID = models.IntegerField()
-    SEX = models.IntegerField()
-    NAME = models.CharField(max_length=20)
-    EXPLANAION = models.CharField(max_length=100)
-    PRICE = models.IntegerField()
-    SIZE = models.ImageField()
-    MAKER =  models.CharField(max_length=20)
+
+# class Base_type(models.Model):
+#     id = models.IntegerField()
+#     name = models.CharField(max_length=10)
+#     base_doc = models.CharField(max_length=20)
+    
+# class Colors(models.Model):
+#     id = models.IntegerField()
+#     name = models.CharField(max_length=10)
+#     base_type_id = models.IntegerField()
+
+# class Items(models.Model):
+#     id = models.IntegerField()
+#     color_id = models.IntegerField()
+#     sex = models.IntegerField()
+#     name = models.CharField(max_length=20)
+#     explanate = models.CharField(max_length=100)
+#     price = models.IntegerField()
+#     size = models.ImageField()
+#     maker =  models.CharField(max_length=20)
