@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contents %}
+<!-- Content section-->
+<div class="my-0">
+  <img src="{% static 'img/new1-vintage-gf58f65e2e_1280.jpg'%}" alt="" class="img-fluid">
+</div>
+<div class="form-wrapper">
+    <h1>新規登録</h1>
+    <form>
+      <div class="form-item">
+        <label for="ID">名前を入力してください</label>
+        <input type="text" name="ID" required="required" placeholder="Name">
+      </div>
+      <div class="form-item ">
+        <label for="email">メールアドレスを入力してください</label>
+        <input type="email" name="email" required="required" placeholder="Email Address">
+      </div>
+      <div class="form-item">
+        <label for="password">パスワードを入力してください</label>
+        <input type="password" name="password" required="required" placeholder="Password">
+      </div>
+      <div class="form-item">
+        <label for="password">パスワードを再入力してください</label>
+        <input type="password" name="password" required="required" placeholder="Password">
+      </div>
+      <div class="btn container">
+        <input type="submit" name="" value="登録する">
+      </div>
+    </form>
+  </div>
+  <div class="my-0">
+    <img src="{% static 'img/new-vintage-gf58f65e2e_1280.jpg'%}" alt="" class="img-fluid">
+</div>
+{% endblock %}
