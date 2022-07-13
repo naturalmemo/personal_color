@@ -4,13 +4,13 @@ import dlib
 import numpy as np
 from matplotlib import pyplot as plt
 import matplotlib.patches as patches
-import ImageProcessing
+from . import ImageProcessing
 
 def recog():
     # def __init__(self,img):
     #     self.image_path=img
 
-    image_path = R"C:\Users\class\PersonalColorFinder\personal_color_finder\i3.jpg"
+    image_path = R"C:\Users\class\PersonalColorFinder\personal_color\personal_color_finder\i3.jpg"
 
     image = ImageProcessing.Image(image_path)
     recog = ImageProcessing.Recognition()
