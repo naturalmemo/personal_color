@@ -3,14 +3,14 @@
 
 {% block header %}
 <!-- Header - set the background image for the header in the line below-->
-<header class="py-1 bg-image-full" style="background-image: url('{% static 'img/new-roses-g44a7cef51_1920.jpg' %}')">
+<header class="py-1 bg-image-full" style="background-image: url('{% static 'img/eye-1.jpg' %}')">
     <div class="text-center my-1">
-        <img class="img-fluid rounded-circle mb-2" src="{% static 'img/clover.jpg' %}" alt="..." />
+        {% comment %} <img class="img-fluid rounded-circle mb-2" src="{% static 'img/clover.jpg' %}" alt="..." /> {% endcomment %}
         <font face="Century">
             <h1 class="text-white fs-1 fw-bolder">Personal Color Finder</h1>
         </font>
         <font face="筑紫ゴシック">
-            <h4 class="text-white-50 mb-5">あなたの顔写真からパーソナルカラーを診断！</h4>
+            <h4 class="text-white mb-5">あなたの顔写真からパーソナルカラーを診断！</h4>
         </font>
     </div>
 </header>
@@ -31,25 +31,16 @@
     </div>
 </section>
 <!-- Image element - set the background image for the header in the line below-->
-{% comment %} <div class="container">
-    <div class="row">
-        <div class="col">
-        <img src="{% static 'img/haru.jpg'%}" alt="" class="img-fluid">
-        </div>
-        <div class="col">
-        <img src="{% static 'img/natsu.jpg' %}" alt="" class="img-fluid">
-        </div>
-        <div class="col">
-        <img src="{% static 'img/aki.jpg' %}" alt="" class="img-fluid">
-        </div>
-        <div class="col">
-        <img src="{% static 'img/huyu.jpg' %}" alt="" class="img-fluid">
-        </div>
-    </div>
-    </div> {% endcomment %}
+<div class="slider">
+    <img src="{% static 'img/img-1.jpg'%}" width="500" height="300" alt="" class="img-fluid">
+    <img src="{% static 'img/img-2.jpg'%}" height="300" alt="" class="img-fluid">
+    <img src="{% static 'img/img-3.jpg'%}" height="300" alt="" class="img-fluid">
+    <img src="{% static 'img/img-4.jpg'%}" height="300" alt="" class="img-fluid">
+    {% comment %} <img src="{% static 'img/roses-g44a7cef51_1920.jpg'%}" height="300" alt="" class="img-fluid"> {% endcomment %}
+</div>
 <!-- Content section-->
 <section class="py-5">
-    <div class="container my-5">
+    <div class="container my-3">
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <font face="筑紫ゴシック">
@@ -66,8 +57,8 @@
                 <div class="container my-5">
                         <div class="row justify-content-center">
                             <div class="col-lg-6">
-                                <p class="mb-5 red">※診断の精度を上げる為に、顔写真は正面からできるだけ明るい自然光で、メガネは外し目をしっかり開いて撮影をお願いします。</p>
-                                <p class="mb-0">例</p> 
+                                <p class="mb-5 red">※診断の精度を上げる為に、撮影は正面から自然光の明るい場所で目をしっかり開き、メガネを掛けている場合は外して撮影をお願いします。</p>
+                                <p class="mb-0">撮影例</p> 
                                 <img src="{% static 'img/iphone2.png' %}" alt="" class="img-fluid">
                             </div>
                         </div>
