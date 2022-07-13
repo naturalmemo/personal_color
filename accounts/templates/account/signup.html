@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% comment %}
 {% block contents %}
 <!-- Content section-->
 <div class="my-0">
@@ -32,5 +33,33 @@
   </div>
   <div class="my-0">
     <img src="{% static 'img/new-vintage-gf58f65e2e_1280.jpg'%}" alt="" class="img-fluid">
+</div>
+{% endcomment %}
+
+{% load django_bootstrap5 %}
+{% block title %}新規登録 | パーソナルカラー診断{% endblock %}
+
+{% block active_signup %}active{% endblock %}
+
+{% block contents %}
+<div class="container">
+    <div class="row">
+        <div class="my-div-style">
+            <h1>新規登録</h1>
+            <form method="post" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+
+                <div class="mb-4 col-4">
+                    {% bootstrap_form form %}
+                </div>
+
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                {% endif %}
+
+                <button class="btn btn-primary" type="submit">登録</button>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}

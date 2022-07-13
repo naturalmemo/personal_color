@@ -30,6 +30,11 @@ INSTALLED_APPS = [
 
     'personal_color.apps.PersonalColorConfig',
     'accounts.apps.AccountsConfig',
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
