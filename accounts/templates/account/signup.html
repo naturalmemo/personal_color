@@ -42,14 +42,17 @@
 {% block active_signup %}active{% endblock %}
 
 {% block contents %}
-<div class="container">
+<div class="my-0">
+  <img src="{% static 'img/new1-vintage-gf58f65e2e_1280.jpg'%}" alt="" class="img-fluid">
+</div>
+<div class="form-wrapper">
     <div class="row">
         <div class="my-div-style">
             <h1>新規登録</h1>
             <form method="post" action="{% url 'account_signup' %}">
                 {% csrf_token %}
 
-                <div class="mb-4 col-4">
+                <div class="form-item">
                     {% bootstrap_form form %}
                 </div>
 
@@ -61,5 +64,8 @@
             </form>
         </div>
     </div>
+</div>
+<div class="my-0">
+  <img src="{% static 'img/new-vintage-gf58f65e2e_1280.jpg'%}" alt="" class="img-fluid">
 </div>
 {% endblock %}
