@@ -65,9 +65,7 @@ class IndexView(generic.FormView):
         }
         return render(request, 'result.html', context)
         # {
-        #     'form': self.form_class , 
         #     #'result': result ,
-        #     'sample_img': sample_img,
         #     }
         #)
 
