@@ -33,6 +33,7 @@ class IndexView(generic.FormView):
         #sample.save()
         print(sample.gender)
         img = sample.img
+        print(type(img))
 
         #画像判定モデルの使用
         # from personal_color_finder import personal_color_finder
