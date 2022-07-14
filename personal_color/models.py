@@ -35,6 +35,7 @@ class Colors(models.Model):
     #色テーブルの作成
     color = models.CharField(max_length=20)
     img_path = models.CharField(max_length=10)
+    color_type_txt = models.CharField(max_length=100)
     base_type_id = models.IntegerField()
 
     def __str__(self):
