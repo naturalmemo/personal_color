@@ -11489,38 +11489,7 @@ form {
   border-bottom: 1px dotted #8c8c8c;
 }
 
-/* ローディング画面 */
-#loading {
-  width: 100vw;
-  height: 100vh;
-  transition: all 1s;
-  background-color: #0bd;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-}
-.spinner {
-  width: 100px;
-  height: 100px;
-  margin: 200px auto;
-  background-color: #fff;
-  border-radius: 100%;
-  animation: sk-scaleout 1.0s infinite ease-in-out;
-}
-/* ローディングアニメーション */
-@keyframes sk-scaleout {
-  0% {
-    transform: scale(0);
-  } 100% {
-    transform: scale(1.0);
-    opacity: 0;
-  }
-}
-.loaded {
-  opacity: 0;
-  visibility: hidden;
-}
+
 .red {
   color: #dc3545;
  }
@@ -11565,4 +11534,61 @@ form {
 	to {
 		opacity: 1;
 	}
+}
+
+/* 全体設定 */
+.css-carousel-slider {
+  width: 100%;
+  /* max-width: 800px */ /* サイズ設定をする場合はここ(*1) */
+  overflow: hidden;
+  position: relative;
+}
+.css-carousel-slider img {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+/* スライド設定 */
+.css-carousel-slider .slide-wrap {
+  width: 400%; /* 画像の合計数*100%を設定(*2) */
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  animation: css-carousel-slider 20s infinite; /* スライダーアニメーション全体の時間(*3) */
+  animation-delay: 2s; /* スライダーが始まるまでの時間(*4) */
+}
+.css-carousel-slider .slide-wrap-main {
+  width: 100%;
+  z-index: 1;
+  animation: css-carousel-slider-main 20s infinite; /* (*3)と同じ内容を設定 */
+  animation-delay: 2s; /* (*4)と同じ内容を設定 */
+}
+.css-carousel-slider .slide {
+  width: 100%;
+}
+
+/* スライダーアニメーションの設定(*5) */
+@keyframes css-carousel-slider {
+  0% { transform: translateX(0); }
+
+  20% { transform: translateX(calc(1 / 4 * -100%)); }
+  25% { transform: translateX(calc(1 / 4 * -100%)); }
+
+  45% { transform: translateX(calc(2 / 4 * -100%)); }
+  50% { transform: translateX(calc(2 / 4 * -100%)); }
+
+  70% { transform: translateX(calc(3 / 4 * -100%)); }
+  75% { transform: translateX(calc(3 / 4 * -100%)); }
+
+  95% { transform: translateX(calc(4 / 4 * -100%)); }
+  100% { transform: translateX(calc(4 / 4 * -100%)); }
+}
+
+@keyframes css-carousel-slider-main {
+  0% { transform: translateX(100%); }
+  75% { transform: translateX(100%); }
+  95% { transform: translateX(0%);}
 }
