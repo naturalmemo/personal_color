@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Base_type, Colors, Items
+
+admin.site.register(Base_type)
+admin.site.register(Colors)
+admin.site.register(Items)
