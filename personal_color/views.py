@@ -38,18 +38,11 @@ class IndexView(generic.FormView):
         print(sample.gender)
         print(img_path)
 
-        #画像判定モデルの使用---ここから---
-        #img = request.FILES['img']
-
-        # from .pcf__model import finder
+        #画像判定モデルの使用
         from .pcf_model.main import finder
-
-        S, contrast = finder(R"C:\Users\class\PersonalColorFinder\media\i6.jpg")
+        S, contrast = finder("." + img_path)
         print(S, contrast)
         
-        # base_value = personal_color_finder(img)
-
-        #---ここまで---
 
         #モデルで結果をDBから取り出し変数に格納
         ###モデルの呼び出し###

@@ -76,7 +76,7 @@ class Recognition:
     
     def landmark_maker(self,img_cv2,rects):
         tmp_img = copy.deepcopy(img_cv2)
-        dlib_path = R"C:\Users\class\PersonalColorFinder\personal_color\pcf_model\shape_predictor_68_face_landmarks.dat"  # テスト用(変更必須)
+        dlib_path = R"personal_color\pcf_model\shape_predictor_68_face_landmarks.dat"  # テスト用(変更必須)
         predictor = dlib.shape_predictor(dlib_path)
         shape = predictor(img_cv2, rects[0])
 
