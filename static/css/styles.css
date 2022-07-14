@@ -11301,24 +11301,17 @@ textarea.form-control-lg {
 }
 .color-vw {
   display: flex;
-  flex-wrap:wrap;
-  margin-left: 90px;
+  flex-wrap:nowrap;
+  vertical-align: middle;
 }
-.color-vw li {
-  width: calc(100%/3);/*←画像を横に3つ並べる場合*/
-  box-sizing:border-box;
-}
+
 .color-vw li img {
   max-width:100%; /*画像のはみだしを防ぐ*/
   height: auto; /*画像の縦横比を維持 */
+  
 }
 
-.col-lg-6 h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-}
+
 .clothes-vw {
   display: flex;
   flex-wrap:wrap;
@@ -11330,23 +11323,15 @@ textarea.form-control-lg {
 }
 .clothes-vw li img {
   max-width:100%; /*画像のはみだしを防ぐ*/
-  height: auto; /*画像の縦横比を維持 */
+  width: 350px;
+  height: 350px;
+  object-fit: contain;
 }
-.season-vw{
-	display: flex;
-	flex-wrap:wrap;
-  float: left;
-  margin-bottom: 50px;
-	
-}
-.season-vw li {
-	width: calc(100%/4);/*←画像を横に4つ並べる場合*/
-	padding:0;
-	box-sizing:border-box;
-}
-.season-vw li img {
-	max-width:100%; /*画像のはみだしを防ぐ*/
-	height: auto; /*画像の縦横比を維持 */
+.col-lg-6 h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
 }
 .diagnose {
   text-align: center;
@@ -11539,3 +11524,45 @@ form {
 .red {
   color: #dc3545;
  }
+
+ /*tabの形状*/
+.tab{
+	display: flex;
+	flex-wrap: nowrap;
+}
+.tab li a{
+	display: block;
+	background:#e9e9e9;
+	margin:0 2px;
+	padding:10px 20px;
+}
+/*liにactiveクラスがついた時の形状*/
+.tab li.active a{
+	background:#d4d9dc;
+}
+
+
+/*エリアの表示非表示と形状*/
+.area {
+	display: none;/*はじめは非表示*/
+	opacity: 0;/*透過0*/
+	background: #d4d9dc;
+	padding:50px 20px;
+}
+
+/*areaにis-activeというクラスがついた時の形状*/
+.area.is-active {
+    display: block;/*表示*/
+    animation-name: displayAnime;/*ふわっと表示させるためのアニメーション*/
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes displayAnime{
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

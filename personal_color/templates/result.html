@@ -32,28 +32,48 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-lg-6">
-                <h2>春タイプ</h2>
-                <p class="lead">春のやさしい暖色の濁りのない彩度の高い色がお似合いのタイプです。周りの人を楽しくさせてしまう明るい印象が特徴です。</p>
+                <h2>秋タイプ</h2>
+                <p class="lead">秋の紅葉を思わせる暖色系のアースカラーがお似合いのタイプです。ナチュラル系とつややかな印象の２タイプいらっしゃるのが特徴です。</p>
                 <h2>あなたに似合うカラー</h2>
-                <p class="lead">春タイプはひよこ色、アップルグリーン、ピーチピンクなど高彩度な黄色が入った色がお似合いです。</p>
+                <p class="lead">秋タイプはライトモス、オレンジ、アプリコットなど暖色系のアースカラーがお似合いです。</p>
             </div>
         </div>
     </div>
 </section>
 <!-- Image element - set the background image for the header in the line below-->
-<ul style="list-style: none; " class="color-vw">
-    <li><img src="{% static '/img/color/haru-pink.png' %}" alt=""></a></li>
-    <li><img src="{% static '/img/color/haru-white.png' %}" alt=""></a></li>
-    <li><img src="{% static '/img/color/haru-blue.png' %}" alt=""></a></li>
-</ul>
-<!-- Image element - set the background image for the header in the line below-->
-<ul style="list-style: none; " class="clothes-vw">
-    <li><img src="{% static '/img/w-clothes/haru-b1.jpg' %}" alt=""></a></li>
-    <li><img src="{% static '/img/w-clothes/haru-b2.jpg' %}" alt=""></a></li>
-    <li><img src="{% static '/img/w-clothes/haru-b3.jpg' %}" alt=""></a></li>
-</ul>
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <ul style="list-style: none; "class="tab color-vw ">
+            <li><a href="#1"><img src="{% static '/img/color/aki-brown.png' %}" alt=""></a></li>
+            <li><a href="#2"><img src="{% static '/img/color/aki-green.png' %}" alt=""></a></li>
+            <li><a href="#3"><img src="{% static '/img/color/aki-pink.png' %}" alt=""></a></li>
+        </ul>
+    </div>
+    
+    <div id="1" class="area">
+    <ul style="list-style: none; " class="clothes-vw">
+        <li><img src="{% static '/img/w-clothes/aki-b1.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-b2.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-b3.jpg' %}" alt=""></a></li>
+    </ul>
+    <!--/area--></div>
+    <div id="2" class="area">
+    <ul style="list-style: none; " class="clothes-vw">
+        <li><img src="{% static '/img/w-clothes/aki-g1.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-g2.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-g3.jpg' %}" alt=""></a></li>
+    </ul>
+    <!--/area--></div>
+    <div id="3" class="area">
+    <ul style="list-style: none; " class="clothes-vw">
+        <li><img src="{% static '/img/w-clothes/aki-p1.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-p2.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-p3.jpg' %}" alt=""></a></li>
+    </ul>
+    <!--/area--></div>
+
 <!-- Content section-->
-<section style="text-align:center" class="twitter mb-5">
+<section style="text-align:center" class="twitter m-5">
     <p>twitterでつぶやく</p>
     <p>↓↓</p>
     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
