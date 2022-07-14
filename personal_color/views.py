@@ -40,8 +40,19 @@ class IndexView(generic.FormView):
 
         #画像判定モデルの使用
         from .pcf_model.main import finder
-        S, contrast = finder("." + img_path)
-        print(S, contrast)
+        try:
+            S, contrast = finder("." + img_path)
+            print(S, contrast)
+        except IndexError:
+            return render(request, 'index.html', context={
+                'form': self.form_class, 
+                'error_message': '※顔を認識できませんでした。\n別の写真でお試しください。',
+            })
+        except Exception:
+            return render(request, 'index.html', context={
+                'form': self.form_class, 
+                'error_message': '※画像ファイルを読み込めませんでした。\n別の写真でお試しください。',
+            })
         
 
         #モデルで結果をDBから取り出し変数に格納
