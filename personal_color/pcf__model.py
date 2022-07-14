@@ -4,4 +4,4 @@ from keras.utils.image_utils import load_img
 def finder(Img):
     # 評価の実施
     img_data = load_img(Img)
-    print(img_data)
+    print(type(img_data))
