@@ -20,31 +20,31 @@ class IndexView(generic.FormView):
     def post(self, request, *args, **kwargs):
         form = PersonalForm(request.POST)
 
-        # 前の画像データを消す
-        shutil.rmtree(MEDIA_ROOT)
-        os.mkdir(MEDIA_ROOT)
-
         # フォームから受け取ったデータをmodelのフィールドに格納
         sample = Sample()
-        sample.img = request.FILES['img']
         sample.gender = request.POST.get('gender', None)
 
-        #テストで追加予定
-        #sample.save()
+        #性別確認テスト
         print(sample.gender)
-        img = sample.img
-        print(type(img))
 
-        #画像判定モデルの使用
-        # from personal_color_finder import personal_color_finder
+        #画像判定モデルの使用---ここから---
+        img = request.FILES['img']
+        from .pcf_model import finder
+
+        finder(img)
+        
         # base_value = personal_color_finder(img)
 
-        #モデルで結果をDBから取り出し
-        #ここに処理を書く
+        #---ここまで---
+
+        #モデルで結果をDBから取り出し変数に格納
+        ###モデルの呼び出し###
 
 
         #結果をresult.htmlに送ってHTML生成
-        context={"img":img}
+        context={
+            ###データベースからのデータを渡す処理
+        }
         return render(request, 'result.html', context)
         # {
         #     'form': self.form_class , 
