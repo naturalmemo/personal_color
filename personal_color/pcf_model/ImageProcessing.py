@@ -5,13 +5,12 @@ from matplotlib import pyplot as plt
 import copy
 
 class Image:
-    def __init__(self,image_path):
-        self.image_path=image_path
+    def __init__(self,image):
+        self.image=image
     
     def loading(self):  # 画像の読み込み
-        img_cv2 = cv2.imread(self.image_path, cv2.IMREAD_COLOR)
         #img_gry = cv2.cvtColor(img_cv2, cv2.COLOR_BGR2GRAY)
-        img_RGB = cv2.cvtColor(img_cv2, cv2.COLOR_BGR2RGB)
+        img_RGB = cv2.cvtColor(self.image, cv2.COLOR_BGR2RGB)
         return (img_RGB)
     
     def resize(self,img,resize):    # 縦もしくは横の最大値にしたい数値
@@ -25,9 +24,6 @@ class Image:
         #print(height_re,width_re)  # リサイズ前とリサイズ後のサイズ確認用
         img_resized = cv2.resize(img , dsize=(width_re,height_re))
         return img_resized
-    
-    
-    
     
     
     def mode(self,list,suji):   # 最頻値の計算(引数にリストと出したい最頻値の数を指定する)
@@ -219,7 +215,7 @@ class Recognition:
         img_skin = img_cv2[y_min : y_max, x_min : x_max]
         return img_skin
     
-    def skin_identification(self,skin_S_list,skin_V_list,img_path):  # 肌結果出す用
+    def skin_identification(self,skin_S_list,skin_V_list,image):  # 肌結果出す用
         #skin_H_list_O100=[]
         skin_S_list_O100=[]
         #skin_V_list_O100=[]
@@ -231,7 +227,6 @@ class Recognition:
                 skin_S_list_O100.append(skin_S_list[i])
                 #skin_V_list_O100.append(skin_V_list[i])
             i+=1
-        image = Image(img_path)
         skin_S_mode = image.mode(skin_S_list_O100,5)
         #skin_V_mode = image.mode(skin_V_list_O100,5)
         #skin_H_mode = image.mode(skin_H_list_O100,5)

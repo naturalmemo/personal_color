@@ -1,6 +1,8 @@
 from asyncio.log import logger
 import logging
 from django.urls import reverse_lazy
+from PIL import Image
+import numpy as np
 from django.shortcuts import render
 from django.views import generic
 from django.contrib import messages
@@ -22,38 +24,64 @@ class IndexView(generic.FormView):
     def post(self, request, *args, **kwargs):
         form = PersonalForm(request.POST)
 
-        #前の画像データを消す
-        shutil.rmtree(MEDIA_ROOT)
-        os.mkdir(MEDIA_ROOT)
+#
+        # #前の画像データを消す
+        # shutil.rmtree(MEDIA_ROOT)
+        # os.mkdir(MEDIA_ROOT)
 
-        # フォームから受け取ったデータをmodelのフィールドに格納
-        sample = Sample()
-        sample.gender = request.POST.get('gender', None)
-        sample.img = request.FILES['img']
-        sample.save()
-        img_path = sample.img.url
+        # # フォームから受け取ったデータをmodelのフィールドに格納
+        # sample = Sample()
+        # sample.gender = request.POST.get('gender', None)
+        # sample.img = request.FILES['img']
+        # sample.save()
+        # img_path = sample.img.url
         
 
-        #性別確認テスト
-        print(sample.gender)
-        print(img_path)
-
-        #画像判定モデルの使用
-        from .pcf_model.main import finder
-        try:
-            S, contrast = finder("." + img_path)
-            print(S, contrast)
-        except IndexError:
-            return render(request, 'index.html', context={
-                'form': self.form_class, 
-                'error_message': '※顔を認識できませんでした。\n別の写真でお試しください。',
-            })
-        except Exception:
-            return render(request, 'index.html', context={
-                'form': self.form_class, 
-                'error_message': '※画像ファイルを読み込めませんでした。\n別の写真でお試しください。',
-            })
+        # #性別確認テスト
+        # print(sample.gender)
+        # print(img_path)
         
+        
+        # #画像判定モデルの使用
+        # from .pcf_model.main import finder
+        # try:
+        #     S, contrast = finder("." + img_path)
+        #     print(S, contrast)
+        # except IndexError:
+        #     return render(request, 'index.html', context={
+        #         'form': self.form_class, 
+        #         'error_message': '※顔を認識できませんでした。\n別の写真でお試しください。',
+        #     })
+        # except Exception:
+        #     return render(request, 'index.html', context={
+        #         'form': self.form_class, 
+        #         'error_message': '※画像ファイルを読み込めませんでした。\n別の写真でお試しください。',
+        #     })
+#
+        #img = Image.open(request.FILES['img'])
+        # #画像の処理
+        # try:
+        #     #PIL型に変換
+        #     img = Image.open(request.FILES['img'])
+        #     #OpenCV型に変換
+        #     image = np.asarray(np.array(img))
+        # except:
+        #     return render(request, 'index.html', context={
+        #         'form': self.form_class, 
+        #         'error_message': '※画像ファイルを読み込めませんでした。\n別の写真でお試しください。',
+        #     })
+        
+        # #画像認識モデルに読ませる
+        # from .pcf_model.main import finder
+        # try:
+        #     S, contrast = finder(image)
+        #     print(S, contrast)
+        # except:
+        #     return render(request, 'index.html', context={
+        #         'form': self.form_class, 
+        #         'error_message': '※顔を認識できませんでした。\n別の写真でお試しください。',
+        #     })
+
 
         #モデルで結果をDBから取り出し変数に格納
         ###モデルの呼び出し###

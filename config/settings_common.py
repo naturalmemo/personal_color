@@ -149,3 +149,6 @@ ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
 
 # デフォルトのメール送信元を設定
 DEFAULT_FROM_EMAIL = os.environ.get('FROM_EMAIL')
+
+#一時保存する画像の型指定
+FILE_UPLOAD_HANDLERS = 'django.core.files.uploadhandler.TemporaryFileUploadHandler'
