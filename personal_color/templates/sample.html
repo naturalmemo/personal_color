@@ -1,18 +1,22 @@
-{% extends 'base.html' %}
-{% load static %}
 
-{% block header %}
-<!-- ローディング画面 -->
-<div id="loading">
-<div class="spinner"></div>
+
+<div class="slider">
+<img src="img/1.png" width="500" height="300" alt="">
+<img src="img/2.png" width="500" height="300" alt="">
+<img src="img/3.png" width="500" height="300" alt="">
 </div>
 
-<!-- コンテンツ部分 -->
-<div class="gallery">
-<div class="item">
-    <img src="images/img1.jpg" alt="">
-</div>
-<div class="item">
-    <img src="images/img2.jpg" alt="">
-</div>
-{% endblock %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+
+
+$(document).ready(function(){
+    $('.slider').bxSlider({
+        auto: true,
+        pause: 5000,
+        
+    });
+});

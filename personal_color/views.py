@@ -36,10 +36,15 @@ class IndexView(generic.FormView):
         print(type(img))
 
         #画像判定モデルの使用
+<<<<<<< HEAD
         from .personal_color_finder.main import recog
 
         recog()
 
+=======
+        # from personal_color_finder import personal_color_finder
+        # base_value = personal_color_finder(img)
+>>>>>>> 418ef8f5ecd4a87cc4f9076e44f39acc0dd473d2
 
         #モデルで結果をDBから取り出し
         #ここに処理を書く
@@ -77,7 +82,7 @@ class LoginView(generic.TemplateView):
     
 
 class LogoutView(generic.TemplateView):
-    template_name = "sample.html"
+    template_name = "signup.html"
 
 
 class MembersView(generic.TemplateView):

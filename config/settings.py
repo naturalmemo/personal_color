@@ -29,6 +29,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'personal_color.apps.PersonalColorConfig',
+    'accounts.apps.AccountsConfig',
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -165,3 +171,5 @@ MESSAGE_TAGS = {
     constants.SUCCESS: 'alert alert-success',
     constants.INFO: 'alert alert-info',
 }
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
