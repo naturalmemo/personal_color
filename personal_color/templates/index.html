@@ -32,12 +32,16 @@
     </div>
 </section>
 <!-- Image element - set the background image for the header in the line below-->
-<div class="slider">
-    <img src="{% static 'img/img-1.jpg'%}" height="300" alt="" class="img-fluid">
-    <img src="{% static 'img/img-2.jpg'%}" height="300" alt="" class="img-fluid">
-    <img src="{% static 'img/img-3.jpg'%}" height="300" alt="" class="img-fluid">
-    <img src="{% static 'img/img-4.jpg'%}" height="300" alt="" class="img-fluid">
-    {% comment %} <img src="{% static 'img/roses-g44a7cef51_1920.jpg'%}" height="300" alt="" class="img-fluid"> {% endcomment %}
+<div class="css-carousel-slider">
+    <div class="slide-wrap-main">
+        <div class="slide"><img src="{% static 'img/img-1.jpg'%}" height="300" alt=""></div><!-- 最初に表示される画像(*1) -->
+    </div>
+    <div class="slide-wrap">
+        <div class="slide"><img src="{% static 'img/img-1.jpg'%}" height="300" alt=""></div><!-- スライド画像(*2) -->
+        <div class="slide"><img src="{% static 'img/img-2.jpg'%}" height="300" alt=""></div>
+        <div class="slide"><img src="{% static 'img/img-3.jpg'%}" height="300" alt=""></div>
+        <div class="slide"><img src="{% static 'img/img-4.jpg'%}" height="300" alt=""></div>
+    </div>
 </div>
 <!-- Content section-->
 <section class="py-5">
