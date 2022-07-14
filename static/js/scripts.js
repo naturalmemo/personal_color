@@ -3,13 +3,6 @@ window.onload = function() {
     spinner.classList.add('loaded');
 }
 
-$(document).ready(function(){
-    $('.slider').bxSlider({
-        auto: true,
-        pause: 5000,
-        
-    });
-});
 
 //任意のタブにURLからリンクするための設定
 function GethashID (hashIDName){
