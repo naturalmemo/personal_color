@@ -53,8 +53,8 @@ class IndexView(generic.FormView):
                 'form': self.form_class, 
                 'error_message': '※画像ファイルを読み込めませんでした。\n別の写真でお試しください。',
             })
-        
 
+        
         #モデルで結果をDBから取り出し変数に格納
         ###モデルの呼び出し###
 
