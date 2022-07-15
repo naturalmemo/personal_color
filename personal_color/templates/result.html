@@ -3,23 +3,10 @@
 {% block title %}診断結果 | パーソナルカラー診断{% endblock %}
 {% block active_index %}active{% endblock %}
 {% block header %}
-<!-- ローディング画面 -->
-<div id="loading">
-<div class="spinner"></div>
-</div>
-
-<!-- コンテンツ部分 -->
-<div class="gallery">
-<div class="item">
-    <img src="images/img1.jpg" alt="">
-</div>
-<div class="item">
-    <img src="images/img2.jpg" alt="">
-</div>
 <!-- Header-->
 <header class="py-5 bg-image-full" style="background-image: url('{% static 'img/blue-g3334803a7_1280.jpg' %}')" >
     <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
+        <div class="text-center text-white text-shadow">
             <h1 class="display-4 fw-bolder ">診断結果</h1>
             <p class="lead fw-bold mb-0">あなたのパーソナルカラーはこちらです</p>
         </div>
@@ -45,31 +32,31 @@
     <div class="col-lg-6">
         <p class="container mx-3">お好きなカラーをクリック</p>
         <ul style="list-style: none; "class="tab color-vw ">
-            <li><a href="#1"><img src="{% static '/img/color/aki-brown.png' %}" alt=""></a></li>
-            <li><a href="#2"><img src="{% static '/img/color/aki-green.png' %}" alt=""></a></li>
-            <li><a href="#3"><img src="{% static '/img/color/aki-pink.png' %}" alt=""></a></li>
+            <li><a href="#1"><img src="{% static '/img/color/aki-goldenbrown.png' %}" alt=""></a></li>
+            <li><a href="#2"><img src="{% static '/img/color/aki-mossgreen.png' %}" alt=""></a></li>
+            <li><a href="#3"><img src="{% static '/img/color/aki-salmonpink.png' %}" alt=""></a></li>
         </ul>
     </div>
     
     <div id="1" class="area">
     <ul style="list-style: none; " class="clothes-vw">
-        <li><img src="{% static '/img/w-clothes/aki-b1.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-b2.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-b3.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-goldenbrown1.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-goldenbrown2.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-goldenbrown3.jpg' %}" alt=""></a></li>
     </ul>
     <!--/area--></div>
     <div id="2" class="area">
     <ul style="list-style: none; " class="clothes-vw">
-        <li><img src="{% static '/img/w-clothes/aki-g1.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-g2.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-g3.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-mossgreen1.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-mossgreen2.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-mossgreen3.jpg' %}" alt=""></a></li>
     </ul>
     <!--/area--></div>
     <div id="3" class="area">
     <ul style="list-style: none; " class="clothes-vw">
-        <li><img src="{% static '/img/w-clothes/aki-p1.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-p2.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-p3.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-salmonpink1.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-salmonpink2.jpg' %}" alt=""></a></li>
+        <li><img src="{% static '/img/w-clothes/aki-salmonpink3.jpg' %}" alt=""></a></li>
     </ul>
     <!--/area--></div>
 
