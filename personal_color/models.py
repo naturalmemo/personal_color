@@ -23,6 +23,7 @@ class Base_type(models.Model):
     base = models.CharField(max_length=10)
     base_doc = models.CharField(max_length=100)
     color_doc = models.CharField(max_length=100)
+    user_id = models.IntegerField()
 
     def __str__(self):
         return str(self.name)
