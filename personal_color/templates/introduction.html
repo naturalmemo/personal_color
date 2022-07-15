@@ -6,9 +6,9 @@
 <!-- Header - set the background image for the header in the line below-->
 <header>
     <div class="flex justify-content-center">
-        <div class="m-2 py-4 bg-image-full" style="background-image: url('{% static 'img/pw-pale.png' %}')">
+        <div class="m-2 py-4 bg-image-full-2" style="background-image: url('{% static 'img/pw-pale.png' %}')">
             <font face="筑紫ゴシック">
-            <h1 class="my-1 card-header-tabs">アプリ紹介</h1>
+            <h1 class="my-1 card-header-tabs">パーソナルカラーとは</h1>
             </font>
         </div>
     </div>
@@ -21,29 +21,74 @@
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <font face="筑紫ゴシック">
-                    <h2>パーソナルカラーとは</h2>
+                    <h2>パーソナルカラーってなに？</h2>
                     <p class="lead">好きな色の服を買ったけれど、なんだか似合っていない・・・と感じたことはありませんか？</p>
                     <p class="mb-0">それはあなたのパーソナルカラーと服の色がマッチしていないからかもしれません。パーソナルカラーとは、ご自身の持っている肌の色・瞳の色によって生まれ持ったお肌タイプのことで、～春・夏・秋・冬～の４つのグループに分けられます。ぜひご自身のパーソナルカラーを見つけてみてください。</p>
                 </font>
-                <div class="dd">
-                    <div class="row">
-                        <img src="{% static 'img/colored-pencils-gdcb499de0_640.jpg'%}" alt="" class="img-fluid">
-                    </div>
-                </div>
-            <div class="my-5">
-                <font face="筑紫ゴシック">
-                    <br><hr>
-                    <h2>パーソナルカラーの判定方法</h2>
-                    <p class="lead">Python（パイソン）を用いた画像認識モデルで、あなたの写真から瞳の色、肌の色を検出し、ベースタイプを判定！</p>
-                    <p class="mb-0"></p>
-                </font>
-                <div class="dd">
-                    <div class="row">
-                        <img src="{% static 'img/magnifying-glass-gce559f432_640.jpg'%}" alt="" class="img-fluid">
-                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Content section-->
+<!-- Image element - set the background image for the header in the line below-->
+
+        <div class="my-5">
+            <ul style="list-style: none; "class="tab color-vw ">
+                <li><a href="#1"><img src="{% static '/img/new-img-1.jpg' %}" alt="">春タイプ</a></li>
+                <li><a href="#2"><img src="{% static '/img/new-img-2.jpg' %}" alt="">夏タイプ</a></li>
+                <li><a href="#3"><img src="{% static '/img/new-img-3.jpg' %}" alt="">秋タイプ</a></li>
+                <li><a href="#4"><img src="{% static '/img/new-img-4.jpg' %}" alt="">冬タイプ</a></li>
+            </ul>
+        </div>
+        
+        <div id="1" class="area">
+        <ul style="list-style: none; " class="clothes-vw">
+            <li><img src="{% static '/img/color/haru-clearsalmonpink.png' %}" alt=""></a></li>
+            <li><img src="{% static '/img/color/haru-ivory.png' %}" alt=""></a></li>
+            <li><img src="{% static '/img/color/haru-lightwarmaqua.png' %}" alt=""></a></li>
+        </ul>
+        <!--/area--></div>
+        <div id="2" class="area">
+        <ul style="list-style: none; " class="clothes-vw">
+            <li><img src="{% static '/img/color/haru-clearsalmonpink.png' %}" alt=""></a></li>
+            <li><img src="{% static '/img/color/haru-ivory.png' %}" alt=""></a></li>
+            <li><img src="{% static '/img/color/haru-lightwarmaqua.png' %}" alt=""></a></li>
+        </ul>
+        <!--/area--></div>
+        <div id="3" class="area">
+        <ul style="list-style: none; " class="clothes-vw">
+            <li><img src="{% static '/img/color/haru-clearsalmonpink.png' %}" alt=""></a></li>
+            <li><img src="{% static '/img/color/haru-ivory.png' %}" alt=""></a></li>
+            <li><img src="{% static '/img/color/haru-lightwarmaqua.png' %}" alt=""></a></li>
+        </ul>
+        <!--/area--></div>
+        <div id="4" class="area">
+        <ul style="list-style: none; " class="clothes-vw">
+            <li><img src="{% static '/img/color/haru-clearsalmonpink.png' %}" alt=""></a></li>
+            <li><img src="{% static '/img/color/haru-ivory.png' %}" alt=""></a></li>
+            <li><img src="{% static '/img/color/haru-lightwarmaqua.png' %}" alt=""></a></li>
+        </ul>
+        <!--/area--></div>
+    </div>
+</div>
+<!-- Content section-->
+<section class="py-0">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+            <font face="筑紫ゴシック">
+                <br><hr>
+                <h2>パーソナルカラーの判定方法</h2>
+                <p class="lead">Python（パイソン）を用いた画像認識モデルで、あなたの写真から瞳の色、肌の色を検出し、ベースタイプを判定！</p>
+                <p class="mb-0"></p>
+            </font>
+            <div class="dd">
+                <div class="row">
+                    <img src="{% static 'img/magnifying-glass-gce559f432_640.jpg'%}" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!-- Content section-->
 {% endblock %}
