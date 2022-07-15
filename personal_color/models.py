@@ -19,10 +19,10 @@ class Sample(models.Model):
 
 class Base_type(models.Model):
     #ベースタイプテーブルの作成
-    season = models.CharField(max_length=10)
+    name = models.CharField(max_length=10)
     base = models.CharField(max_length=10)
-    img_path = models.CharField(max_length=10)
-    base_type_txt = models.CharField(max_length=100)
+    base_doc = models.CharField(max_length=100)
+    color_doc = models.CharField(max_length=100)
 
     def __str__(self):
         return str(self.name)
@@ -33,13 +33,12 @@ class Base_type(models.Model):
 
 class Colors(models.Model):
     #色テーブルの作成
-    color = models.CharField(max_length=20)
-    img_path = models.CharField(max_length=10)
-    color_type_txt = models.CharField(max_length=100)
+    name = models.CharField(max_length=20)
+    path = models.CharField(max_length=30)
     base_type_id = models.IntegerField()
 
     def __str__(self):
-        return str(self.color)
+        return str(self.name)
 
     class Meta:
         verbose_name_plural = '色'
@@ -48,13 +47,12 @@ class Colors(models.Model):
 class Items(models.Model):
     #アイテムテーブルの作成
 
+    path = models.CharField(max_length=30)
     gender = models.IntegerField()
-    Items_name = models.CharField(max_length=20,null=False)
-    img_path = models.CharField(max_length=10)
     color_id = models.IntegerField()
 
     def __str__(self):
-        return str(self.name)
+        return str(self.path)
 
     class Meta:
         verbose_name_plural = 'アイテム'
