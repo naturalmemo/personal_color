@@ -35,7 +35,7 @@ class Colors(models.Model):
     #色テーブルの作成
     name = models.CharField(verbose_name='色名', max_length=20)
     img = models.ImageField(verbose_name='色の画像')
-    base_type_id = models.IntegerField(verbose_name='ベースタイプ接続ID')
+    base_type = models.ForeignKey(Base_type, verbose_name='ベースタイプ', on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.name)
@@ -49,10 +49,10 @@ class Items(models.Model):
     name = models.CharField(verbose_name='アイテム名', max_length=20)
     img = models.ImageField(verbose_name='アイテム画像')
     gender = models.IntegerField(verbose_name='性別')
-    color_id = models.IntegerField(verbose_name='色テーブル接続ID')
+    color = models.ForeignKey(Colors, verbose_name='色名', on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.img)
+        return str(self.name)
 
     class Meta:
         verbose_name_plural = 'アイテム'

@@ -58,7 +58,6 @@
         </div>
     </div>
     <div class="text-center lead">
-        <form method="post" enctype="multipart/form-data">
             <font face="筑紫ゴシック">
                 <div class="container my-5">
                         <div class="row justify-content-center">
@@ -69,6 +68,7 @@
                             </div>
                         </div>
                     </div>
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             性別: 
             {% for value in form.gender %}
