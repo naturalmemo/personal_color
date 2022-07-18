@@ -22,10 +22,10 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link {% block active_index %}{% endblock %}" href="/">ホーム</a></li>
-                        <li class="nav-item"><a class="nav-link {% block active_introduction %}{% endblock %}" href="/introduction">アプリ紹介</a></li>
-                        <li class="nav-item"><a class="nav-link {% block active_members %}{% endblock %}" href="/members">メンバー紹介</a></li>
-                        <li class="nav-item"><a class="nav-link {% block active_form %}{% endblock %}" href="/form">フォーム</a></li>
+                        <li class="nav-item"><a class="nav-link {% block active_index %}{% endblock %}" href="{% url 'personal_color:index' %}">ホーム</a></li>
+                        <li class="nav-item"><a class="nav-link {% block active_introduction %}{% endblock %}" href="{% url 'personal_color:introduction' %}">アプリ紹介</a></li>
+                        <li class="nav-item"><a class="nav-link {% block active_members %}{% endblock %}" href="{% url 'personal_color:members' %}">メンバー紹介</a></li>
+                        <li class="nav-item"><a class="nav-link {% block active_form %}{% endblock %}" href="{% url 'personal_color:form' %}">フォーム</a></li>
                         {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link {% block active_logout %}{% endblock %}" href="{% url 'account_logout' %}">ログアウト</a></li>
                         {% else %}

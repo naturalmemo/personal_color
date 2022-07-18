@@ -11611,3 +11611,7 @@ form {
 .text-shadow {
   text-shadow: 1px 2px 3px #808080;
 }
+
+.error_text {
+  height: 100vh;
+}
