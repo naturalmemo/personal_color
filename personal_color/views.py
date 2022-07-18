@@ -70,18 +70,42 @@ class IndexView(generic.FormView):
         # context={
         #     'colors': colors
         # }
-        # return render(request, 'result.html', context)
+        return render(request, 'result.html')
         # {
         #     #'result': result ,
         #     }
-        #)
+        # )
+        # def get_success_url(self):
+        #     return reverse_lazy("personal_color:result", kwargs={"pk": 2222})
 
 class ResultView(generic.ListView):
     template_name = "result.html"
-    model = Colors
+    def get(self, request, *args, **kwargs):
+        context = {}
+        context["base"] = Base_type.objects.filter(id=1).first()
+        context["colors"] = Colors.objects.filter(base_type=1)
+        return render(request, 'result.html', context)
+
+    # def get(self, request, *args, **kwargs):
+    #     base_type = Base_type.objects.filter(id=1).first()
+    #     colors = base_type.colors_set.all()
+    #     context = {}
+    #     context["base"] = base_type
+    #     context["colors"] = colors
+    #     context["items"] = Items.objects.filter()
+    #     return render(request, 'result.html', context)
+
+    # def get_queryset(self):
+    #     #colors = Colors.objects.filter(base_type_id__exact=1).all()
+    #     # items = Items.objects.filter(colors__base_type__id=1).all()
+    #     #items = Items.objects.filter(color=1).all()
+    #     base_type = Base_type.objects.select_related().get(id=1)
+    #     return base_type
+    #colors = Colors.objects.filter(base_type_id__exact=1).all()
+    # items = Items.objects.filter(colors__base_type__id=1, gender=1).all()
     
-    def get_queryset(self):
-        return Colors.objects.filter(base_type_id=4)
+    # def get_queryset(self):
+    #     return Base_type.objects
 
 
 class InquiryView(generic.FormView):
