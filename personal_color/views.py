@@ -8,7 +8,7 @@ from .forms import InquiryForm, PersonalForm
 from .models import Sample
 from config.settings import *
 from config.settings_dev import *
-from .models import Colors
+from .models import Base_type, Colors, Items
 
 import shutil
 import os
