@@ -10,8 +10,7 @@ from config.settings import *
 from config.settings_dev import *
 from .models import Base_type, Colors, Items
 
-import shutil
-import os
+
 
 logger = logging.getLogger(__name__)
 
@@ -82,20 +81,18 @@ class ResultView(generic.ListView):
     template_name = "result.html"
     def get(self, request, *args, **kwargs):
         #URLからbase取得
-        base=3
+        base=4
         context = {}
-        context["base"] = Base_type.objects.filter(id=base).first()
-        context["colors"] = Colors.objects.filter(base_type=base)
+        # context["base"] = Base_type.objects.filter(id=base).first()
+        # context["colors"] = Colors.objects.filter(base_type=base)
+        # context["items"] = Items.objects.filter(color__base_type__id=1, gender=1).all()
+
+        base_type = Base_type.objects.filter(id=base)
+        colors = base_type.colors_set.all()
+        context["base"] = base_type
+        context["colors"] = colors
         return render(request, 'result.html', context)
 
-    # def get(self, request, *args, **kwargs):
-    #     base_type = Base_type.objects.filter(id=1).first()
-    #     colors = base_type.colors_set.all()
-    #     context = {}
-    #     context["base"] = base_type
-    #     context["colors"] = colors
-    #     context["items"] = Items.objects.filter()
-    #     return render(request, 'result.html', context)
 
     # def get_queryset(self):
     #     #colors = Colors.objects.filter(base_type_id__exact=1).all()

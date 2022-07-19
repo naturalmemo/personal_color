@@ -35,7 +35,7 @@
         <ul style="list-style: none; "class="tab color-vw ">
             {%for color in colors%}
             <li><a href="#{{ forloop.counter }}"><img src="{{ color.img.url }}" alt=""></a></li>
-            <p class="lead">{{color.name}}</p>
+            <p class="lead"></p>
             {%endfor%}
 
         </ul>
@@ -44,7 +44,10 @@
     {%for color in colors%}
     <div id="{{ forloop.counter }}" class="area">
         <ul style="list-style: none; " class="clothes-vw">
-        {%for item in color.itm_color.all%}
+        {% comment %} {%for item in color.itm_color.all%}
+        <li><img src="{{ item.img.url }}" alt=""></a></li>
+        {%endfor%} {% endcomment %}
+        {%for item in items%}
         <li><img src="{{ item.img.url }}" alt=""></a></li>
         {%endfor%}
     </div>
