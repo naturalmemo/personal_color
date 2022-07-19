@@ -25,21 +25,25 @@ class Sample(models.Model):
 
 
 
+
 class Base_type(models.Model):
-    base_type_id = models.IntegerField()
-    base_type_name = models.CharField(max_length=10,null=False)
-    base_type_base_doc = models.CharField(max_length=20)
+    id = models.IntegerField(primary_key=id,null=False)
+    name = models.CharField(max_length=10,null=False)
+    base_doc = models.CharField(max_length=100)
+    base_doc_spring = models.CharField(max_length=100)#季節の説明
+    
 
 class Colors(models.Model):
-    Colors_id = models.IntegerField()
+    Colors_id = models.IntegerField(primary_key=id,null=False)
     Colors_name = models.CharField(max_length=10,null=False)
-    Colors_id = models.IntegerField()
+    base_type_id = models.CharField(max_length=100)
 
 class Items(models.Model):
-    Items_id = models.IntegerField()
+    Items_id = models.IntegerField(primary_key=id)
+    Item_color_id = models.IntegerField()
     Items_sex = models.IntegerField()
     Items_name = models.CharField(max_length=20,null=False)
-    Items_explanate = models.CharField(max_length=100,null=False)
+    Items_explanaion = models.CharField(max_length=100,null=False)
     Items_price = models.IntegerField()
     Items_size = models.ImageField()
     Items_maker =  models.CharField(max_length=20)
