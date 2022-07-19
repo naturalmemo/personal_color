@@ -8,6 +8,7 @@ from .forms import InquiryForm, PersonalForm
 from .models import Sample
 from config.settings import *
 from config.settings_dev import *
+from .models import Base_type, Colors, Items
 
 import shutil
 import os
@@ -21,10 +22,6 @@ class IndexView(generic.FormView):
     # postメソッドをオーバーライドする
     def post(self, request, *args, **kwargs):
         form = PersonalForm(request.POST)
-
-        #前の画像データを消す
-        shutil.rmtree(MEDIA_ROOT)
-        os.mkdir(MEDIA_ROOT)
 
         # フォームから受け取ったデータをmodelのフィールドに格納
         sample = Sample()
@@ -57,17 +54,34 @@ class IndexView(generic.FormView):
         
         #モデルで結果をDBから取り出し変数に格納
         ###モデルの呼び出し###
-
+        # from .models import Colors
+        # model = Colors
+        # colors = get_queryset(self)
+        # def get_queryset(self):
+        #     colors = Colors.objects.filter(base_type_id=4)
+        #     return colors
+        
+        # def get_queryset(self):
+        #     return super().get_queryset()
+        
+        
 
         #結果をresult.htmlに送ってHTML生成
-        context={
-            ###データベースからのデータを渡す処理
-        }
-        return render(request, 'result.html', context)
+        # context={
+        #     'colors': colors
+        # }
+        return render(request, 'result.html')
         # {
         #     #'result': result ,
         #     }
         #)
+
+class ResultView(generic.ListView):
+    template_name = "result.html"
+    model = Colors
+    
+    def get_queryset(self):
+        return Colors.objects.filter(base_type_id=4)
 
 
 class InquiryView(generic.FormView):
@@ -96,3 +110,7 @@ class LogoutView(generic.TemplateView):
 
 class MembersView(generic.TemplateView):
     template_name = "members.html"
+
+
+class TestView(generic.TemplateView):
+    template_name = "403.html"

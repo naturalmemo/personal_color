@@ -7270,6 +7270,22 @@ textarea.form-control-lg {
   margin-bottom: 0 !important;
 }
 
+.my-01 {
+  background-image: url('../img/new1-vintage-gf58f65e2e_1280.jpg');
+  background-size: cover;
+  height: 150px;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.my-02 {
+  background-image: url('../img/new-background-gadefe0c79_1280.jpg');
+  background-size: cover;
+  height: 150px;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 .my-1 {
   margin-top: 0.25rem !important;
   margin-bottom: 0.25rem !important;
@@ -11591,4 +11607,11 @@ form {
   0% { transform: translateX(100%); }
   75% { transform: translateX(100%); }
   95% { transform: translateX(0%);}
+}
+.text-shadow {
+  text-shadow: 1px 2px 3px #808080;
+}
+
+.error_text {
+  height: 100vh;
 }

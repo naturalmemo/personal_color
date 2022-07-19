@@ -5,6 +5,35 @@
 {% block active_login %}active{% endblock %}
 
 {% block contents %}
+<section class="py-5">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <font face="筑紫ゴシック">
+                    <h2>ユーザー登録</h2>
+                    
+                    {% if confirmation %}
+
+                    <p class="lead my-5 mx-5">ユーザー登録を確定するには、以下のボタンを押してください。</p>
+
+                    <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+                        {% csrf_token %}
+                        <button class="btn btn-primary" type="submit">確定</button>
+                    </form>
+    
+                {% else %}
+    
+                    {% url 'account_email' as email_url %}
+    
+                    <p class="lead my-5 mx-5">リンクの有効期限が過ぎています。 <a href="{{ email_url }}">再申請</a>.</p>
+    
+                {% endif %}
+                </font>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="container">
     <div class="row">
         <div class="my-div-style">

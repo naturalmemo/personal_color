@@ -1,9 +1,3 @@
-window.onload = function() {
-    const spinner = document.getElementById('loading');
-    spinner.classList.add('loaded');
-}
-
-
 //任意のタブにURLからリンクするための設定
 function GethashID (hashIDName){
 	if(hashIDName){
