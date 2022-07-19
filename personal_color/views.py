@@ -79,7 +79,9 @@ class ResultView(generic.ListView):
         context = {}
         context["base"] = Base_type.objects.filter(id=base).first()
         context["colors"] = Colors.objects.filter(base_type=base)
-        if gender <= 2:
+        if int(gender) <= 2:
+            context["items"] = Items.objects.filter(color__base_type__id=base, gender=gender)
+        else:
             context["items"] = Items.objects.filter(color__base_type__id=base).all()
         return render(request, 'result.html', context)
 
