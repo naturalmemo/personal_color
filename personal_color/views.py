@@ -83,14 +83,14 @@ class ResultView(generic.ListView):
         #URLからbase取得
         base=4
         context = {}
-        # context["base"] = Base_type.objects.filter(id=base).first()
-        # context["colors"] = Colors.objects.filter(base_type=base)
-        # context["items"] = Items.objects.filter(color__base_type__id=1, gender=1).all()
+        context["base"] = Base_type.objects.filter(id=base).first()
+        context["colors"] = Colors.objects.filter(base_type=base)
+        context["items"] = Items.objects.filter(color__base_type__id=1, gender=1).all()
 
-        base_type = Base_type.objects.filter(id=base)
-        colors = base_type.colors_set.all()
-        context["base"] = base_type
-        context["colors"] = colors
+        # base_type = Base_type.objects.filter(id=base)
+        # colors = base_type.colors_set.all()
+        # context["base"] = base_type
+        # context["colors"] = colors
         return render(request, 'result.html', context)
 
 
