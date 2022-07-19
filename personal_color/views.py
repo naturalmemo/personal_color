@@ -64,28 +64,23 @@ class IndexView(generic.FormView):
                 id = 4    #冬
 
 
-        redirect_url = reverse('result')
-        parameters = urlencode(dict(param_a=id))
+        redirect_url = reverse('personal_color:result')
+        parameters = urlencode(dict(base=id, gender=sample.gender))
         url = f'{redirect_url}?{parameters}'
         return redirect(url)
-        # success_url = reverse_lazy("result", id)
-        # return success_url
 
-        # def get_success_url(self):
-        #     return redirect('personalcolor:result', id)
-
-        #return render(request, 'result.html')
-        # def get_success_url(self):
-        #     return reverse_lazy("personal_color:result", kwargs={"pk": 2222})
 
 class ResultView(generic.ListView):
     template_name = "result.html"
-    def get(self, request, pk):
+    def get(self, request):
+        base = request.GET.get('base')
+        gender = request.GET.get('gender')
         #URLからbase取得
         context = {}
-        context["base"] = Base_type.objects.filter(id=pk).first()
-        context["colors"] = Colors.objects.filter(base_type=pk)
-        context["items"] = Items.objects.filter(color__base_type__id=1, gender=1).all()
+        context["base"] = Base_type.objects.filter(id=base).first()
+        context["colors"] = Colors.objects.filter(base_type=base)
+        if gender <= 2:
+            context["items"] = Items.objects.filter(color__base_type__id=base).all()
         return render(request, 'result.html', context)
 
 
