@@ -20,10 +20,10 @@
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <h2>{{base.base}}/{{base.name}}タイプ</h2>
-                <p class="lead">{{base.base_doc}}</p>
+                <p class="lead mt-2">{{base.base_doc}}</p>
                 
                 <h2>あなたに似合うカラー</h2>
-                <p class="lead">{{base.color_doc}}</p>
+                <p class="lead mt-2">{{base.color_doc}}</p>
             </div>
         </div>
     </div>
@@ -47,9 +47,6 @@
         {%for item in color.itm_color.all%}
         <li><img src="{{ item.img.url }}" alt=""></a></li>
         {%endfor%}
-        {% comment %} {%for item in items%}
-        <li><img src="{{ item.img.url }}" alt=""></a></li>
-        {%endfor%} {% endcomment %}
     </div>
     {%endfor%}
 

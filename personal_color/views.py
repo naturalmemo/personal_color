@@ -1,7 +1,7 @@
 from asyncio.log import logger
 import logging
 from django.urls import reverse_lazy
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import generic
 from django.contrib import messages
 from .forms import InquiryForm, PersonalForm
@@ -9,6 +9,8 @@ from .models import Sample
 from config.settings import *
 from config.settings_dev import *
 from .models import Base_type, Colors, Items
+from django.urls import reverse
+from urllib.parse import urlencode
 
 
 
@@ -30,15 +32,14 @@ class IndexView(generic.FormView):
         img_path = sample.img.url
         
 
-        #性別確認テスト
-        print(sample.gender)
-        print(img_path)
+        # #性別確認テスト
+        # print(sample.gender)
+        # print(img_path)
 
         #画像判定モデルの使用
         from .pcf_model.main import finder
         try:
             S, contrast = finder("." + img_path)
-            print(S, contrast)
         except IndexError:
             return render(request, 'index.html', context={
                 'form': self.form_class, 
@@ -50,42 +51,36 @@ class IndexView(generic.FormView):
                 'error_message': '※画像ファイルを読み込めませんでした。\n別の写真でお試しください。',
             })
 
-        
-        #モデルで結果をDBから取り出し変数に格納
-        ###モデルの呼び出し###
-        # from .models import Colors
-        # model = Colors
-        # colors = get_queryset(self)
-        # def get_queryset(self):
-        #     colors = Colors.objects.filter(base_type_id=4)
-        #     return colors
-        
-        # def get_queryset(self):
-        #     return super().get_queryset()
-        
-        
+        #彩度Sは50を、コントラストcontrastは70を基準にベースタイプを振り分け
+        if int(S) >= 50:
+            if int(contrast) < 70:
+                id = 1    #春
+            else:
+                id = 3    #秋
+        else:
+            if int(contrast) < 70:
+                id = 2    #夏
+            else:
+                id = 4    #冬
 
-        #結果をresult.htmlに送ってHTML生成
-        # context={
-        #     'colors': colors
-        # }
-        return render(request, 'result.html')
-        # {
-        #     #'result': result ,
-        #     }
-        # )
-        # def get_success_url(self):
-        #     return reverse_lazy("personal_color:result", kwargs={"pk": 2222})
+
+        redirect_url = reverse('personal_color:result')
+        parameters = urlencode(dict(base=id, gender=sample.gender))
+        url = f'{redirect_url}?{parameters}'
+        return redirect(url)
+
 
 class ResultView(generic.ListView):
     template_name = "result.html"
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
+        base = request.GET.get('base')
+        gender = request.GET.get('gender')
         #URLからbase取得
-        base=4
         context = {}
         context["base"] = Base_type.objects.filter(id=base).first()
         context["colors"] = Colors.objects.filter(base_type=base)
-        context["items"] = Items.objects.filter(color__base_type__id=1, gender=1).all()
+        if gender <= 2:
+            context["items"] = Items.objects.filter(color__base_type__id=base).all()
         return render(request, 'result.html', context)
 
 
