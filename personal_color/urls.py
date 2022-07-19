@@ -4,7 +4,7 @@ from . import views
 app_name = 'personal_color'
 urlpatterns = [
     path('',views.IndexView.as_view(), name='index'),
-    path('result/', views.ResultView.as_view(), name='result'),
+    path('result/<int:pk>/', views.ResultView.as_view(), name='result'),
     path('form/', views.InquiryView.as_view(), name='form'),
     path('introduction/', views.IntroductionView.as_view(), name='introduction'),
     path('login/', views.LoginView.as_view(), name='login'),
