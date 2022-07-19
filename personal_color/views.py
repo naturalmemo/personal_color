@@ -70,7 +70,7 @@ class IndexView(generic.FormView):
         # context={
         #     'colors': colors
         # }
-        # return render(request, 'result.html', context)
+        return render(request, 'result.html')
         # {
         #     #'result': result ,
         #     }
