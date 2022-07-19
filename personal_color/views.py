@@ -81,9 +81,11 @@ class IndexView(generic.FormView):
 class ResultView(generic.ListView):
     template_name = "result.html"
     def get(self, request, *args, **kwargs):
+        #URLからbase取得
+        base=3
         context = {}
-        context["base"] = Base_type.objects.filter(id=1).first()
-        context["colors"] = Colors.objects.filter(base_type=1)
+        context["base"] = Base_type.objects.filter(id=base).first()
+        context["colors"] = Colors.objects.filter(base_type=base)
         return render(request, 'result.html', context)
 
     # def get(self, request, *args, **kwargs):
@@ -135,6 +137,3 @@ class LogoutView(generic.TemplateView):
 class MembersView(generic.TemplateView):
     template_name = "members.html"
 
-
-class TestView(generic.TemplateView):
-    template_name = "403.html"

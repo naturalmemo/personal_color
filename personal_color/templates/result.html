@@ -37,39 +37,18 @@
             <li><a href="#{{ forloop.counter }}"><img src="{{ color.img.url }}" alt=""></a></li>
             <p class="lead">{{color.name}}</p>
             {%endfor%}
-            {% comment %} {%for color in base.co_base%}
-            <li><a href="#{{ forloop.counter }}"><img src="{{ color.img.url }}" alt=""></a></li>
-            <p class="lead">{{color.name}}</p>
-            {%endfor%} {% endcomment %}
-            {%for color in colors%}
-                {%for item in color.itm_color.all%}
-                    {{item.name}}
-                {%endfor%}
-            {%endfor%}
+
         </ul>
     </div>
     
-    <div id="1" class="area">
-    <ul style="list-style: none; " class="clothes-vw">
-        <li><img src="{% static '/img/w-clothes/aki-goldenbrown1.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-goldenbrown2.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-goldenbrown3.jpg' %}" alt=""></a></li>
-    </ul>
-    <!--/area--></div>
-    <div id="2" class="area">
-    <ul style="list-style: none; " class="clothes-vw">
-        <li><img src="{% static '/img/w-clothes/aki-mossgreen1.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-mossgreen2.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-mossgreen3.jpg' %}" alt=""></a></li>
-    </ul>
-    <!--/area--></div>
-    <div id="3" class="area">
-    <ul style="list-style: none; " class="clothes-vw">
-        <li><img src="{% static '/img/w-clothes/aki-salmonpink1.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-salmonpink2.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-salmonpink3.jpg' %}" alt=""></a></li>
-    </ul>
-    <!--/area--></div>
+    {%for color in colors%}
+    <div id="{{ forloop.counter }}" class="area">
+        <ul style="list-style: none; " class="clothes-vw">
+        {%for item in color.itm_color.all%}
+        <li><img src="{{ item.img.url }}" alt=""></a></li>
+        {%endfor%}
+    </div>
+    {%endfor%}
 
 <!-- Content section-->
 <section style="text-align:center" class="twitter m-5">
