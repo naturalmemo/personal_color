@@ -86,25 +86,7 @@ class ResultView(generic.ListView):
         context["base"] = Base_type.objects.filter(id=base).first()
         context["colors"] = Colors.objects.filter(base_type=base)
         context["items"] = Items.objects.filter(color__base_type__id=1, gender=1).all()
-
-        # base_type = Base_type.objects.filter(id=base)
-        # colors = base_type.colors_set.all()
-        # context["base"] = base_type
-        # context["colors"] = colors
         return render(request, 'result.html', context)
-
-
-    # def get_queryset(self):
-    #     #colors = Colors.objects.filter(base_type_id__exact=1).all()
-    #     # items = Items.objects.filter(colors__base_type__id=1).all()
-    #     #items = Items.objects.filter(color=1).all()
-    #     base_type = Base_type.objects.select_related().get(id=1)
-    #     return base_type
-    #colors = Colors.objects.filter(base_type_id__exact=1).all()
-    # items = Items.objects.filter(colors__base_type__id=1, gender=1).all()
-    
-    # def get_queryset(self):
-    #     return Base_type.objects
 
 
 class InquiryView(generic.FormView):
