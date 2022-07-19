@@ -77,7 +77,7 @@ class ResultView(generic.ListView):
         gender = request.GET.get('gender')
         #URLからbase取得
         context = {}
-        context["base"] = Base_type.objects.filter(id=base).first()
+        context["base"] = Base_type.objects.get(id=base)
         context["colors"] = Colors.objects.filter(base_type=base)
         if int(gender) <= 2:
             context["items"] = Items.objects.filter(color__base_type__id=base, gender=gender)

@@ -44,7 +44,8 @@
     {%for color in colors%}
     <div id="{{ forloop.counter }}" class="area">
         <ul style="list-style: none; " class="clothes-vw">
-        {%for item in color.itm_color.all%}
+        {%for item in items%}
+        {% comment %} {%for item in color.itm_color.all%} {% endcomment %}
         <li><img src="{{ item.img.url }}" alt=""></a></li>
         {%endfor%}
     </div>
