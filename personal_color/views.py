@@ -69,18 +69,6 @@ class IndexView(generic.FormView):
         url = f'{redirect_url}?{parameters}'
         return redirect(url)
 
-<<<<<<< HEAD
-        #結果をresult.htmlに送ってHTML生成
-        # context={
-        #     'colors': colors
-        # }
-        return render(request, 'result.html')
-        # {
-        #     #'result': result ,
-        #     }
-        #)
-=======
->>>>>>> b2c25b7ab50f6e022ff56426d01badef0fa3b162
 
 class ResultView(generic.ListView):
     template_name = "result.html"
@@ -95,6 +83,7 @@ class ResultView(generic.ListView):
             context["items"] = Items.objects.filter(color__base_type__id=base, gender=gender)
         else:
             context["items"] = Items.objects.filter(color__base_type__id=base).all()
+        
         return render(request, 'result.html', context)
 
 
