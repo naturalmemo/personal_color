@@ -8,5 +8,5 @@ __pycache__/
 *.pyc
 db-volumes/
 db.sqlite3
-media
 .jpg
+requirements.txt

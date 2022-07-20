@@ -19,10 +19,11 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-lg-6">
-                <h2>秋タイプ</h2>
-                <p class="lead">秋の紅葉を思わせる暖色系のアースカラーがお似合いのタイプです。ナチュラル系とつややかな印象の２タイプいらっしゃるのが特徴です。</p>
+                <h2>{{base.base}}/{{base.name}}タイプ</h2>
+                <p class="lead mt-2">{{base.base_doc}}</p>
+                
                 <h2>あなたに似合うカラー</h2>
-                <p class="lead">秋タイプはライトモス、オレンジ、アプリコットなど暖色系のアースカラーがお似合いです。</p>
+                <p class="lead mt-2">{{base.color_doc}}</p>
             </div>
         </div>
     </div>
@@ -32,33 +33,22 @@
     <div class="col-lg-6">
         <p class="container mx-3">お好きなカラーをクリック</p>
         <ul style="list-style: none; "class="tab color-vw ">
-            <li><a href="#1"><img src="{% static '/img/color/aki-goldenbrown.png' %}" alt=""></a></li>
-            <li><a href="#2"><img src="{% static '/img/color/aki-mossgreen.png' %}" alt=""></a></li>
-            <li><a href="#3"><img src="{% static '/img/color/aki-salmonpink.png' %}" alt=""></a></li>
+            {%for color in colors%}
+            <li><a href="#{{ forloop.counter }}"><img src="{{ color.img.url }}" alt=""></a></li>
+            <p class="lead"></p>
+            {%endfor%}
+
         </ul>
     </div>
     
-    <div id="1" class="area">
-    <ul style="list-style: none; " class="clothes-vw">
-        <li><img src="{% static '/img/w-clothes/aki-goldenbrown1.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-goldenbrown2.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-goldenbrown3.jpg' %}" alt=""></a></li>
-    </ul>
-    <!--/area--></div>
-    <div id="2" class="area">
-    <ul style="list-style: none; " class="clothes-vw">
-        <li><img src="{% static '/img/w-clothes/aki-mossgreen1.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-mossgreen2.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-mossgreen3.jpg' %}" alt=""></a></li>
-    </ul>
-    <!--/area--></div>
-    <div id="3" class="area">
-    <ul style="list-style: none; " class="clothes-vw">
-        <li><img src="{% static '/img/w-clothes/aki-salmonpink1.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-salmonpink2.jpg' %}" alt=""></a></li>
-        <li><img src="{% static '/img/w-clothes/aki-salmonpink3.jpg' %}" alt=""></a></li>
-    </ul>
-    <!--/area--></div>
+    {%for color in colors%}
+    <div id="{{ forloop.counter }}" class="area">
+        <ul style="list-style: none; " class="clothes-vw">
+        {%for item in color.itm_color.all%}
+        <li><img src="{{ item.img.url }}" alt=""></a></li>
+        {%endfor%}
+    </div>
+    {%endfor%}
 
 <!-- Content section-->
 <section style="text-align:center" class="twitter m-5">

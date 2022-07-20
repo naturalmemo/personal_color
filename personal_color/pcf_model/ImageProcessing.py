@@ -1,7 +1,7 @@
 import cv2
 import dlib
 import numpy as np
-from matplotlib import pyplot as plt
+#from matplotlib import pyplot as plt
 import copy
 
 class Image:
@@ -10,7 +10,6 @@ class Image:
     
     def loading(self):  # 画像の読み込み
         img_cv2 = cv2.imread(self.image_path, cv2.IMREAD_COLOR)
-        #img_gry = cv2.cvtColor(img_cv2, cv2.COLOR_BGR2GRAY)
         img_RGB = cv2.cvtColor(img_cv2, cv2.COLOR_BGR2RGB)
         return (img_RGB)
     
@@ -26,7 +25,22 @@ class Image:
         img_resized = cv2.resize(img , dsize=(width_re,height_re))
         return img_resized
     
-    
+    def max_min(self,list,boo,hoge):
+        list_copy = copy.deepcopy(list)
+        list_hoge = []
+        if boo: #boo=True(max)
+            for i in range(hoge):
+                index = np.argmax(list_copy)
+                list_hoge.append(max(list_copy))
+                list_copy[index] = 0
+            return list_hoge
+        else:
+            list_max = max(list_copy)
+            for i in range(hoge):
+                index = np.argmin(list_copy)
+                list_hoge.append(min(list_copy))
+                list_copy[index] = list_max
+            return list_hoge
     
     
     
@@ -39,17 +53,17 @@ class Image:
             count[np.argmax(count)]=0       # 取得した最頻値を0に変更(消去するとインデックス数が変化するため)
         return mode
     
-    # 画像出力用(テスト用)
+    """ # 画像出力用(テスト用)
     def image_display(self,img):
         plt.imshow(img)
-        plt.show()
+        plt.show() """
     
-    # 画像保存用(テスト用)
+    """ # 画像保存用(テスト用)
     def save(self,img):
         plt.imshow(img)
         plt.axis('tight')
         plt.axis("off")
-        plt.savefig("img.jpg")
+        plt.savefig("img.jpg") """
     
     
     
@@ -76,7 +90,7 @@ class Recognition:
     
     def landmark_maker(self,img_cv2,rects):
         tmp_img = copy.deepcopy(img_cv2)
-        dlib_path = R"personal_color\pcf_model\shape_predictor_68_face_landmarks.dat"  # テスト用(変更必須)
+        dlib_path = R"personal_color\pcf_model\shape_predictor_68_face_landmarks.dat"
         predictor = dlib.shape_predictor(dlib_path)
         shape = predictor(img_cv2, rects[0])
 
@@ -87,6 +101,121 @@ class Recognition:
         for point in landmark:
             cv2.circle(tmp_img, point, 2, (255, 0, 255), thickness=-1)
         return landmark
+    
+    def color(self,img_RGB_re): # 色をHSV形式で取得
+        img_HSV_re = cv2.cvtColor(img_RGB_re , cv2.COLOR_RGB2HSV)
+        HSV_array = np.array(img_HSV_re)
+        H_list = []
+        S_list = []
+        V_list = []
+        for x in HSV_array:
+            for y in x:
+                H_list.append(int(y[0]))
+                S_list.append(int(y[1]))
+                V_list.append(int(y[2]))
+        return H_list,S_list,V_list
+    
+    def skin(self , landmark , img_cv2):    # 目の下当たりの画像取得
+        x_list=[]
+        y_list=[]
+        x2_list=[]
+        y2_list=[]
+        x_list.append(landmark[1][0])
+        y_list.append(landmark[1][1])
+        x_list.append(landmark[2][0])
+        y_list.append(landmark[2][1])
+        x2_list.append(landmark[14][0])
+        y2_list.append(landmark[14][1])
+        x2_list.append(landmark[15][0])
+        y2_list.append(landmark[15][1])
+        x_min = max(x_list)
+        x_max = min(x2_list)
+        y_min = max(min(y_list) , min(y2_list))
+        y_max = min(max(y_list) , max(y2_list))
+        img_skin = img_cv2[y_min : y_max, x_min : x_max]
+        return img_skin
+    
+    def skin_identification(self,skin_S_list,skin_V_list,image_path):  # 肌結果出す用
+        #skin_H_list_O100=[]
+        skin_S_list_O100=[]
+        #skin_V_list_O100=[]
+        i=0
+        for point in skin_V_list:
+            if point > 100:
+                #skin_H_list_O100.append(skin_H_list[i])
+                skin_S_list_O100.append(skin_S_list[i])
+                #skin_V_list_O100.append(skin_V_list[i])
+            i+=1
+        image = Image(image_path)
+        skin_S_mode = image.mode(skin_S_list_O100,5)
+        #skin_V_mode = image.mode(skin_V_list_O100,5)
+        #skin_H_mode = image.mode(skin_H_list_O100,5)
+        skin_S_mode_mean = sum(skin_S_mode)/5
+        #skin_V_mode_mean = sum(skin_V_mode)/5
+        #skin_H_mode_mean = sum(skin_H_mode)/5
+        #skin_S_mean = np.mean(skin_S_list_O100)
+        return int(skin_S_mode_mean)
+    
+    def eye_contrast(self,img_resized,inner_canthus,outer_canthus):
+        x1,y1=inner_canthus
+        x2,y2=outer_canthus
+        img_HLS = cv2.cvtColor(img_resized, cv2.COLOR_RGB2HLS)
+        y = int((y1+y2)/2)
+        eye_length = x2 - x1
+        #print(f"eye_length = {eye_length}")
+        L_list = []
+        for i in range(eye_length):
+            a=int(img_HLS[y][i+x1][1])
+            L_list.append(a)
+        L_min = min(L_list)
+        L_max = max(L_list)
+        #print(f"L_MAX : {np.argmax(L_list)} = {L_max}")
+        #print(f"L_MIN : {np.argmin(L_list)} = {L_min}")
+        Mcontrast = round(((L_max-L_min)/(L_max+L_min))*100)
+        return Mcontrast
+
+
+""" 作成したけど使わなかった残骸たち
+def binarization(self,img_gray):    # 2値化まとめ
+    # 大津の二値化
+    #ret, tmp_binarizationed = cv2.threshold(img_gray, 200, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+    #tmp_binarizationed = cv2.bitwise_not(img_gray) # 白黒反転
+    # Canny法の二値化
+    tmp_binarizationed = cv2.Canny(img_gray,160,160)
+    # 適応的閾値処理
+    #tmp_binarizationed = cv2.adaptiveThreshold(img_gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 39, 2)
+    return tmp_binarizationed
+    
+def H_classification(self,H_list):   # Hの色分け(0黄1緑2水3青4紫5赤)
+    H_cla=[]
+    for point in H_list:
+        point-=15
+        if point<0:
+            point+=180
+        H_cla.append(point//30)
+    return H_cla
+        
+def iris_recognition(self,landmark_local,tmp_binarizationed):  # 瞳周辺のランドマークの対角線の平均を出してその半分を円の半径と仮定してその円を探して描写する
+    aaa = np.array(landmark_local[1])
+    bbb = np.array(landmark_local[4])
+    ccc = np.array(landmark_local[2])
+    ddd = np.array(landmark_local[5])
+    radius1 = (np.linalg.norm(aaa-bbb))/2
+    radius2 = (np.linalg.norm(ccc-ddd))/2
+    radius = int((radius1+radius2)/2)
+    circles = cv2.HoughCircles(tmp_binarizationed,cv2.HOUGH_GRADIENT,dp=1,minDist=1,param1=150,param2=20,minRadius=int(radius*0.6), maxRadius=int(radius*1.3))    #画質が荒い時はparam2を下げる(5)にするほうが検知がしやすそう
+    circles = np.uint16(np.around(circles)) # circlesの中身を整数値に丸めてキャスト
+    a=[]
+    for circle in circles[0, :]:
+        b=circle[2]
+        a.append(b)
+    max_index = np.argmax(a)
+    return circles[0][max_index][0], circles[0][max_index][1], circles[0][max_index][2]
+    
+def eye_identification(self,white_eye_V,black_eye_V):   # 瞳結果出す用
+    print(f"白日：{white_eye_V}\n黒目：{black_eye_V}")
+    contrast = (white_eye_V / black_eye_V)
+    return int(contrast)
     
     def cut_out_eye_img(self,img_cv2, eye_points):  #目の周りの切り取り(テスト用)
         height, width = img_cv2.shape[:2]
@@ -103,17 +232,16 @@ class Recognition:
         return eye_img  #, x_min, x_max, y_min, y_max 
 
     def eye_recognition(self,landmark,eye_img,x_min,y_min,boo): # 表示確認(右目のみ)
-        eye_img_copy = copy.deepcopy(eye_img)
         landmark_local = []
         for point in landmark[36:42]:
             point_local = (point[0] - x_min, point[1] - y_min)
             landmark_local.append(point_local)
             if boo:
+                eye_img_copy = copy.deepcopy(eye_img)
                 cv2.circle(eye_img_copy, point_local, 1, (255, 0, 255), thickness=-1)  # 瞳検出の座標確認用
                 plt.imshow(eye_img_copy)
                 plt.show()
         return landmark_local
-    
     
     def dark_eyed(self , landmark , img_RGB):    # 右目の黒目取得
         x_list=[]
@@ -186,100 +314,26 @@ class Recognition:
         HSV_2 = HSV_array[y_2][x_2]
         return HSV_1,HSV_2
     
-    def color(self,img_RGB_re): # 色をHSV形式で取得
-        img_HSV_re = cv2.cvtColor(img_RGB_re , cv2.COLOR_RGB2HSV)
-        HSV_array = np.array(img_HSV_re)
-        H_list = []
-        S_list = []
-        V_list = []
-        for x in HSV_array:
-            for y in x:
-                H_list.append(int(y[0]))
-                S_list.append(int(y[1]))
-                V_list.append(int(y[2]))
-        return H_list,S_list,V_list
-    
-    def skin(self , landmark , img_cv2):    # 目の下当たりの画像取得
-        x_list=[]
-        y_list=[]
-        x2_list=[]
-        y2_list=[]
-        x_list.append(landmark[1][0])
-        y_list.append(landmark[1][1])
-        x_list.append(landmark[2][0])
-        y_list.append(landmark[2][1])
-        x2_list.append(landmark[14][0])
-        y2_list.append(landmark[14][1])
-        x2_list.append(landmark[15][0])
-        y2_list.append(landmark[15][1])
-        x_min = max(x_list)
-        x_max = min(x2_list)
-        y_min = max(min(y_list) , min(y2_list))
-        y_max = min(max(y_list) , max(y2_list))
-        img_skin = img_cv2[y_min : y_max, x_min : x_max]
-        return img_skin
-    
-    def skin_identification(self,skin_S_list,skin_V_list,img_path):  # 肌結果出す用
-        #skin_H_list_O100=[]
-        skin_S_list_O100=[]
-        #skin_V_list_O100=[]
-        
-        i=0
-        for point in skin_V_list:
-            if point > 100:
-                #skin_H_list_O100.append(skin_H_list[i])
-                skin_S_list_O100.append(skin_S_list[i])
-                #skin_V_list_O100.append(skin_V_list[i])
-            i+=1
-        image = Image(img_path)
-        skin_S_mode = image.mode(skin_S_list_O100,5)
-        #skin_V_mode = image.mode(skin_V_list_O100,5)
-        #skin_H_mode = image.mode(skin_H_list_O100,5)
-        skin_S_mode_mean = sum(skin_S_mode)/5
-        #skin_V_mode_mean = sum(skin_V_mode)/5
-        #skin_H_mode_mean = sum(skin_H_mode)/5
-        #skin_S_mean = np.mean(skin_S_list_O100)
-        return int(skin_S_mode_mean)
-    
-    def eye_identification(self,white_eye_V,black_eye_V):   # 瞳結果出す用
-        contrast = (white_eye_V / black_eye_V)*100
-        return int(contrast)
-    
-    
-""" 作成したけど使わなかった残骸たち
-def binarization(self,img_gray):    # 2値化まとめ
-    # 大津の二値化
-    #ret, tmp_binarizationed = cv2.threshold(img_gray, 200, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
-    #tmp_binarizationed = cv2.bitwise_not(img_gray) # 白黒反転
-    # Canny法の二値化
-    tmp_binarizationed = cv2.Canny(img_gray,160,160)
-    # 適応的閾値処理
-    #tmp_binarizationed = cv2.adaptiveThreshold(img_gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 39, 2)
-    return tmp_binarizationed
-    
-def H_classification(self,H_list):   # Hの色分け(0黄1緑2水3青4紫5赤)
-    H_cla=[]
-    for point in H_list:
-        point-=15
-        if point<0:
-            point+=180
-        H_cla.append(point//30)
-    return H_cla
-        
-def iris_recognition(self,landmark_local,tmp_binarizationed):  # 瞳周辺のランドマークの対角線の平均を出してその半分を円の半径と仮定してその円を探して描写する
-    aaa = np.array(landmark_local[1])
-    bbb = np.array(landmark_local[4])
-    ccc = np.array(landmark_local[2])
-    ddd = np.array(landmark_local[5])
-    radius1 = (np.linalg.norm(aaa-bbb))/2
-    radius2 = (np.linalg.norm(ccc-ddd))/2
-    radius = int((radius1+radius2)/2)
-    circles = cv2.HoughCircles(tmp_binarizationed,cv2.HOUGH_GRADIENT,dp=1,minDist=1,param1=150,param2=20,minRadius=int(radius*0.6), maxRadius=int(radius*1.3))    #画質が荒い時はparam2を下げる(5)にするほうが検知がしやすそう
-    circles = np.uint16(np.around(circles)) # circlesの中身を整数値に丸めてキャスト
-    a=[]
-    for circle in circles[0, :]:
-        b=circle[2]
-        a.append(b)
-    max_index = np.argmax(a)
-    return circles[0][max_index][0], circles[0][max_index][1], circles[0][max_index][2]
+def eye_contrast(self,img_resized,inner_canthus,outer_canthus):
+    x1,y1=inner_canthus
+    x2,y2=outer_canthus
+    img_HLS = cv2.cvtColor(img_resized, cv2.COLOR_RGB2HLS)
+    y = int((y1+y2)/2)
+    eye_length = x2 - x1
+    print(eye_length)
+    L_list = []
+    L_list_squaring = []
+    for i in range(eye_length):
+        a=int(img_HLS[y][i+x1][1])
+        L_list.append(a)
+        L_list_squaring.append(a**2)
+    for i in range(len(L_list_squaring)):
+        if i>=3:
+            print(f"{i} : {L_list_squaring[i]}", end=" , ")
+            print(f"{L_list_squaring[i]-L_list_squaring[i-3]}", end=" , ")
+            print(f"{max(L_list_squaring)-L_list_squaring[i]}")
+    img_resized = cv2.line(img_resized, (x1,y), (x2,y), (255, 255, 255),thickness=1)
+    plt.imshow(img_resized)
+    plt.show()
+    return L_list,L_list_squaring
 """
