@@ -3,3 +3,4 @@
 起動コマンド
 python manage.py runserver -–settings config.settings_dev　で起動します。
 プロジェクトの直下にsettings_local.py を置いて起動してください。
+仮想環境へ入るコマンド　仮想環境名　\Scripts\activate
